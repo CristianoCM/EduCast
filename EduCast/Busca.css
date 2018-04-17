@@ -1,0 +1,112 @@
+body {
+	background-color: black;
+}
+
+h2 {
+	color: white;
+	text-align: center;
+}
+
+.botao-buscar {
+	margin-right: 10px;
+}
+
+.form-inline {
+	width: 40%;
+}
+
+.container-fluid {
+	color: white;
+	font-size: 17px;
+}
+
+.card {
+	border: 1px solid rgb(14,122,139);
+}
+
+.card-header {
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.card-footer, .card-header, .card-body {
+	background-color: rgb(14,122,139);
+}
+
+.card-text {
+	text-align: justify;
+	font-size: 16px;
+}
+
+.card-body {
+	padding: 0px;
+}
+
+.seta-esquerda-pop {
+	text-align: center;
+  	font-size: 22px;
+}
+
+.seta-esquerda-pop:hover {
+	background: linear-gradient(-90deg, black, #33cccc);
+	font-weight: bold;
+}
+
+.seta-direita-pop {
+	text-align: center;
+  	font-size: 22px;
+}
+
+.seta-direita-pop:hover {
+	background: linear-gradient(-90deg, #33cccc, black);
+	font-weight: bold;
+}
+
+.busca-setas {
+	text-align: center;
+}
+
+.fa-chevron-left, .fa-chevron-right {
+	color: white;
+}
+
+video {
+	width: 100%;
+	height: 100%;
+}
+
+.rodape {
+	border-right: 50px double silver;
+	border-left: 50px double silver;
+
+	position: fixed;
+	bottom: 0;
+}
+
+#panda {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dropdown-menu > li > a {
+	color: rgb(14,122,139);
+	padding-left: 10px;
+}
+
+.dropdown-menu > li > a:hover {
+	color: black;
+}
+
+@media only screen and (max-width: 975px) {
+	.form-inline {
+		width: 70%;
+	}
+}
+
+@media only screen and (max-width: 456px) {
+	.form-inline {
+		width: 100%;
+	}
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="Login.css">
+    <title>EduCast - Login</title>
+  </head>
+  <body>
+    <video autoplay loop muted poster="screenshot.jpg" id="background">
+        <source src="Videos/main-background.mp4" type="video/mp4">
+        O seu navegador não suporta vídeos do HTML5.
+    </video>
+
+    <div class="container-fluid box-div box-grande">
+  	  <div class="row">
+  	    <div class="col-lg-2 col-md-2 col-sm-3 header-div" onclick="redirecionar(this)">Página Inicial</div>
+  	    <div class="col-lg-2 col-md-2 col-sm-3 ativado header-div" onclick="redirecionar(this)">Cadastre-se!</div>
+  	    <div class="col-lg-2 col-md-2 col-sm-3 header-div" onclick="redirecionar(this)">Contato</div>
+  	    <div class="col-lg-2 col-md-2 col-sm-3 header-div" onclick="redirecionar(this)">Sobre</div>
+  	  </div>
+  	</div>
+
+    <div class="container-fluid box-div box-pequena">
+      <div class="row">
+        <div class="col-sm-3 header-div" title="Página Inicial" onclick="redirecionarMob(this)"><i class="fa fa-home mobile-icon"></i></div>
+        <div class="col-sm-3 ativado header-div" title="Cadastre-se!" onclick="redirecionarMob(this)"><i class="fa fa-group mobile-icon"></i></div>
+        <div class="col-sm-3 header-div" title="Contato" onclick="redirecionarMob(this)"><i class="fa fa-commenting-o mobile-icon"></i></div>
+        <div class="col-sm-3 header-div" title="Sobre" onclick="redirecionarMob(this)"><i class="fa fa-newspaper-o mobile-icon"></i></div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container-fluid box-titulo">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <hr>
+        <div class="titulo">Acesse sua <span style="color: #33cccc;">Conta</span>:</div>
+        <i class="fa fa-exchange"></i>
+        <hr>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container box-div box-cadastro">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="form-group">
+            <label for="inputUsuario"><span style="font-size: 28px; font-weight: bold;">Usuário</span></label>
+            <input class="form-control input-sm" id="inputUsuario" type="text" placeholder="Usuário">
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="form-group">
+            <label for="inputPassword"><span style="font-size: 28px; font-weight: bold;">Senha</span></label>
+            <input class="form-control input-sm" id="inputPassword" type="password" placeholder="Senha">
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" onclick="verificarUsuario()">Entrar</button>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <hr>
+          <p><a href="Cadastro.html">Criar uma Conta</a></p>
+          <p><a href="EsqueceuSenha.html">Esqueceu sua Senha?</a></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalAccountInvalid" tabindex="-1" role="dialog" aria-labelledby="modalAccountInvalidTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modalAccountInvalidLongTitle">Aviso</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <span style="color: #33cccc;">Usuário</span> e/ou <span style="color: #33cccc;">Senha</span> informado(s) inválido(s) ou inexistente.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function redirecionar(pag) {
+        if (pag.innerHTML == "Página Inicial") {
+          window.location.replace("Main.html");
+        } else if (pag.innerHTML == "Cadastre-se!") {
+          window.location.replace("Cadastro.html");
+        } else if (pag.innerHTML == "Contato") {
+          window.location.replace("Contato.html");
+        } else if (pag.innerHTML == "Sobre") {
+          window.location.replace("Sobre.html");
+        }
+      }
+
+      function redirecionarMob(pag) {
+        if (pag.getAttribute('title') == "Página Inicial") {
+          window.location.replace("Main.html");
+        } else if (pag.getAttribute('title') == "Cadastre-se!") {
+          window.location.replace("Cadastro.html");
+        } else if (pag.getAttribute('title') == "Contato") {
+          window.location.replace("Contato.html");
+        } else if (pag.getAttribute('title') == "Sobre") {
+          window.location.replace("Sobre.html");
+        }
+      }
+
+      function verificarUsuario() {
+        var usu = $("#inputUsuario").val();
+        var pas = $("#inputPassword").val();
+        // Converter senha para hash
+        // Verifcar no banco de dados
+        var v = true;
+        if (v) {
+          window.location.replace("Biblioteca.html");
+        } else {        
+          $('#modalAccountInvalid').modal('show');
+        }
+      }
+    </script>
+  </body>
+  <br><br>
+  <footer>
+    <div class="container-fluid box-div rodape">
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-twitter"></a>
+      <a href="#" class="fa fa-google"></a>
+      <br><br>
+      <strong>EduCast</strong><br>
+      Todos os direito reservados © 2018
+    </div>
+  </footer>
+</html>

@@ -1,0 +1,77 @@
+.botao-buscar {
+	margin-right: 10px;
+}
+
+.form-inline {
+	width: 40%;
+}
+
+body {
+	background:
+	radial-gradient(black 15%, transparent 16%) 0 0,
+	radial-gradient(black 15%, transparent 16%) 8px 8px,
+	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+	background-color:#282828;
+	background-size:16px 16px;
+}
+
+.borda-checks {
+	border-right: 1px solid rgba(0,0,0,0.15);
+	margin-right: 10px;
+	margin-left: 5px;
+}
+
+.dropdown-menu > li > a {
+	color: rgb(14,122,139);
+	padding-left: 10px;
+}
+
+.dropdown-menu > li > a:hover {
+	color: black;
+}
+
+.container-fluid, .container {
+	color: black;
+	font-size: 17px;
+}
+
+h2 {
+	color: white;
+}
+
+input[type='file'] {
+  display: none
+}
+
+label {
+  background-color: #33cccc;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin: 10px;
+  padding: 6px 20px
+}
+
+#info_carregar_imagem {
+	font-family: 'tahoma';
+	font-size: smaller;
+}
+
+#editNome:hover {
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+@media only screen and (max-width: 975px) {
+	.form-inline {
+		width: 70%;
+	}
+}
+
+@media only screen and (max-width: 456px) {
+	.form-inline {
+		width: 100%;
+	}
+}
+

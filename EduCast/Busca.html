@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="Busca.css">
+
+  <meta charset="utf-8">
+  <title>EduCast - Busca</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
+	  <a class="navbar-brand">
+	    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmqfbrxTA2rPM4c4WBE5dNth3ovxw2YbMrFXG5S4rFznAaJwkY" width="30" height="30" class="d-inline-block align-top" alt="">
+	    Edu<span style="color: #33cccc;">Cast</span>
+	  </a>
+	  <div class="collapse navbar-collapse" id="navbarText">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item">
+	        <a class="nav-link" href="Biblioteca.html">Acervo</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Perfil</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="Login.html">Sair</a>
+	      </li>
+	    </ul>
+	  </div>
+	  <form class="form-inline">
+	  	<div class="container">
+	  		<div class="row">
+	  			<div class="col-lg-12 col-md-12 col-sm-12">
+	  				<div class="input-group">
+				  		<div class="input-group-btn search-panel">
+						  	<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+					        	<span id="search_concept">Conteúdo</span> <span class="caret"></span>
+					        </button>
+					        <ul class="dropdown-menu" role="menu">
+					          <li><a href="#">Programação</a></li>
+					          <li><a href="#">Redes</a></li>
+					          <li><a href="#">Mobile</a></li>
+					          <li><a href="#">Banco de Dados</a></li>
+					          <li><a href="#">Hardware</a></li>
+					          <li><hr style="margin-top: 5px; margin-bottom: 5px;"></li>
+					          <li><a href="#">Todos</a></li>
+					        </ul>
+				    	</div>
+				        <input type="hidden" name="search_param" value="all" id="search_param">  
+					    <input class="form-control botao-buscar" type="search" placeholder="Buscar pelo título..." aria-label="Search">
+					    <button class="btn btn-outline-info fa fa-search" type="submit" title="Buscar"></button>
+					</div>
+	  			</div>
+	  		</div>
+	  	</div>
+	  </form>
+	</nav>
+
+	<br>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<h2>Resultado da <span style="color: #33cccc;">Pesquisa</span>:</h2>
+			</div>			
+		</div>
+
+		<div class="row">
+        	<div class="col-lg-5 col-md-4 col-sm-4"></div>
+            <div class="col-lg-2 col-md-4 col-sm-4 busca-setas">
+            	<a class="btn btn-outline-secondary prev seta-esquerda-pop" title="Itens Anteriores" id="busca_prev">
+            		<i class="fa fa-lg fa-chevron-left"></i>
+            	</a>
+            	<a class="btn btn-outline-secondary next seta-direita-pop" title="Itens Posteriores" id="busca_next">
+            		<i class="fa fa-lg fa-chevron-right"></i>
+            	</a>
+            </div>
+            <div class="col-lg-5 col-md-4 col-sm-4"></div>
+        </div>
+        <br>
+
+	</div>
+
+	<section class="carousel slide" data-ride="carousel" id="busca">
+		
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-1 col-md-1 col-sm-1"></div>
+
+				<div class="col-lg-2 col-md-4 col-sm-4">
+					<div class="card text-white mb-3" style="max-width: 18rem;">
+					  <div class="card-header busca_titulo">Título</div>
+					  <div class="card-body">
+					  	<div class="video busca_video">
+					  		<a href="Exibicao.html">
+							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
+							      <source src="Videos/main-background.mp4" type="video/mp4">
+							      Your browser does not support the video tag.
+							    </video>
+						    </a>
+						</div>
+						<div class="video-info">
+							<span class="badge badge-pill badge-light busca_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light busca_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+						</div>
+						<div class="busca_tags">
+							<span class="badge badge-pill badge-dark">C#</span>
+					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
+					    	<span class="badge badge-pill badge-dark">MVC</span>
+					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+						</div>
+					  </div>
+					  <div class="card-footer">
+					    <p class="card-text busca_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4 col-sm-4">
+					<div class="card text-white mb-3" style="max-width: 18rem;">
+					  <div class="card-header busca_titulo">Título</div>
+					  <div class="card-body">
+					  	<div class="video busca_video">
+					  		<a href="Exibicao.html">
+							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
+							      <source src="Videos/main-background.mp4" type="video/mp4">
+							      Your browser does not support the video tag.
+							    </video>
+						    </a>
+						</div>
+						<div class="video-info">
+							<span class="badge badge-pill badge-light busca_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light busca_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+						</div>
+						<div class="busca_tags">
+							<span class="badge badge-pill badge-dark">C#</span>
+					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
+					    	<span class="badge badge-pill badge-dark">MVC</span>
+					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+						</div>
+					  </div>
+					  <div class="card-footer">
+					    <p class="card-text busca_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4 col-sm-4">
+					<div class="card text-white mb-3" style="max-width: 18rem;">
+					  <div class="card-header busca_titulo">Título</div>
+					  <div class="card-body">
+					  	<div class="video busca_video">
+					  		<a href="Exibicao.html">
+							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
+							      <source src="Videos/main-background.mp4" type="video/mp4">
+							      Your browser does not support the video tag.
+							    </video>
+						    </a>
+						</div>
+						<div class="video-info">
+							<span class="badge badge-pill badge-light busca_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light busca_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+						</div>
+						<div class="busca_tags">
+							<span class="badge badge-pill badge-dark">C#</span>
+					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
+					    	<span class="badge badge-pill badge-dark">MVC</span>
+					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+						</div>
+					  </div>
+					  <div class="card-footer">
+					    <p class="card-text busca_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4 col-sm-4">
+					<div class="card text-white mb-3" style="max-width: 18rem;">
+					  <div class="card-header busca_titulo">Título</div>
+					  <div class="card-body">
+					  	<div class="video busca_video">
+					  		<a href="Exibicao.html">
+							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
+							      <source src="Videos/main-background.mp4" type="video/mp4">
+							      Your browser does not support the video tag.
+							    </video>
+						    </a>
+						</div>
+						<div class="video-info">
+							<span class="badge badge-pill badge-light busca_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light busca_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+						</div>
+						<div class="busca_tags">
+							<span class="badge badge-pill badge-dark">C#</span>
+					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
+					    	<span class="badge badge-pill badge-dark">MVC</span>
+					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+						</div>
+					  </div>
+					  <div class="card-footer">
+					    <p class="card-text busca_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4 col-sm-4">
+					<div class="card text-white mb-3" style="max-width: 18rem;">
+					  <div class="card-header busca_titulo">Título</div>
+					  <div class="card-body">
+					  	<div class="video busca_video">
+					  		<a href="Exibicao.html">
+							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
+							      <source src="Videos/main-background.mp4" type="video/mp4">
+							      Your browser does not support the video tag.
+							    </video>
+						    </a>
+						</div>
+						<div class="video-info">
+							<span class="badge badge-pill badge-light busca_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light busca_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+						</div>
+						<div class="busca_tags">
+							<span class="badge badge-pill badge-dark">C#</span>
+					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
+					    	<span class="badge badge-pill badge-dark">MVC</span>
+					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+						</div>
+					  </div>
+					  <div class="card-footer">
+					    <p class="card-text busca_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-1 col-md-1 col-sm-1"></div>
+			</div>
+
+	</section>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<img id="panda" src="https://vignette.wikia.nocookie.net/camphalfbloodroleplay/images/2/28/Exercise.gif/revision/latest?cb=20161228053139" width="250" height="250">
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		var figure = $(".video").hover( hoverVideo, hideVideo );
+
+		function hoverVideo(e) {
+		    $('video', this).get(0).play();
+		}
+
+		function hideVideo(e) {
+		    $('video', this).get(0).pause();
+		}
+
+		$("a.seta-esquerda-pop").click(function() {
+			$("#busca").fadeOut(function() {
+			// Vídeos Pesquisados - Leva anterior
+			$(".busca_titulo").html("Título");
+			$(".busca_duracao").html("<span style='color: #3399ff;'>Duração:</span> 3:12");
+		    $(".busca_autor").html("<span style='color: #3399ff;'>Autor:</span> Carlos Roberto");
+		    $(".busca_video").html("<a href='Exibicao.html'><video loop muted preload='none' poster='Imagens/EduCast Background.jpg'><source src='Videos/main-background.mp4' type='video/mp4'>Your browser does not support the video tag.</video></a>");
+		    // Tags
+		    $(".busca_tags").html("<span class='badge badge-pill badge-dark'>C#</span><span class='badge badge-pill badge-dark'>ASP.NET</span><span class='badge badge-pill badge-dark'>MVC</span><span class='badge badge-pill badge-dark'>Visual Studio</span>");
+		    $(".busca_descricao").html("Some quick example text to build on the card title and make up the bulk of the card's content.");
+		});
+		fadeInElement($("#busca"));
+		});
+
+		$("a.seta-direita-pop").click(function() {
+			$("#busca").fadeOut(function() {
+			    // Vídeos Pesquisados - Próxima leva
+				$(".busca_titulo").html("Novo Título");
+				$(".busca_duracao").html("<span style='color: #3399ff;'>Duração:</span> 4:54");
+			    $(".busca_autor").html("<span style='color: #3399ff;'>Autor:</span> Sujeito");
+			    $(".busca_video").html("<video loop muted preload='none' poster=''><source src='' type='video/mp4'>Your browser does not support the video tag.</video>");
+			    // Tags
+			    $(".busca_tags").html("<span class='badge badge-pill badge-dark'>Java</span><span class='badge badge-pill badge-dark'>Android Studio</span><span class='badge badge-pill badge-dark'>Android</span><span class='badge badge-pill badge-dark'>Mobile</span>");
+			    $(".busca_descricao").html("Vídeo sobre tal tal tal e tal coisa");
+				fadeInElement($("#busca"));
+			});
+		});
+
+		function fadeInElement(e) {
+			e.fadeIn();
+		}
+
+		function fadeOutElement(e) {
+			e.fadeOut();
+		}
+
+		$(document).ready(function(e){
+		    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+				e.preventDefault();
+				var param = $(this).attr("href").replace("#","");
+				var concept = $(this).text();
+				$('.search-panel span#search_concept').text(concept);
+				$('.input-group #search_param').val(param);
+			});
+		});
+
+	</script>
+
+</body>
+<footer>
+
+	<div class="container-fluid bg-light text-dark text-center rodape">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<strong>Edu<span style="color: #33cccc;">Cast</span></strong><br>
+          		Todos os direito reservados © 2018
+			</div>
+		</div>
+	</div>
+
+</footer>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="Main.css">
+
+	<title>EduCast - Página Inicial</title>
+</head>
+<body>
+
+  <video autoplay loop muted poster="Imagens/EduCast Background.jpg" id="background">
+      <source src="Videos/main-background.mp4" type="video/mp4">
+      O seu navegador não suporta vídeos do HTML5.
+  </video>
+
+	<div class="container-fluid box-div box-grande">
+	  <div class="row">
+	    <div class="col-lg-2 col-md-2 col-sm-2 ativado header-div" onclick="redirecionar(this)">Página Inicial</div>
+	    <div class="col-lg-2 col-md-2 col-sm-2 header-div" onclick="redirecionar(this)">Cadastre-se!</div>
+	    <div class="col-lg-2 col-md-2 col-sm-2 header-div" onclick="redirecionar(this)">Contato</div>
+	    <div class="col-lg-2 col-md-2 col-sm-2 header-div" onclick="redirecionar(this)">Sobre</div>
+	    <div class="col-lg-4 col-md-4 col-sm-4"><a href="Login.html"><button type="button" class="btn btn-dark header-button">Entrar</button></a></div>
+	  </div>
+	</div>
+
+	<div class="container-fluid box-div box-pequena">
+    <div class="row">
+      <div class="col-sm-3 ativado header-div" title="Página Inicial" onclick="redirecionarMob(this)"><i class="fa fa-home mobile-icon"></i></div>
+      <div class="col-sm-3 header-div" title="Cadastre-se!" onclick="redirecionarMob(this)"><i class="fa fa-group mobile-icon"></i></div>
+      <div class="col-sm-3 header-div" title="Contato" onclick="redirecionarMob(this)"><i class="fa fa-commenting-o mobile-icon"></i></div>
+      <div class="col-sm-3 header-div" title="Sobre" onclick="redirecionarMob(this)"><i class="fa fa-newspaper-o mobile-icon"></i></div>
+      <div class="col-sm-4"><a href="Login.html"><button type="button" class="btn btn-dark header-button">Entrar</button></a></div>
+    </div>
+  </div>
+
+  <br><br>
+
+	<div class="container-fluid box-logo">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+          <h0>~Edu<span id="cast">Cast</span>~</h0>
+      </div>
+    </div>
+  </div>
+
+  <br><br><br>
+
+  <div class="container-fluid box-div centro">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h1>Teste agora <b style="color: #33cccc;">gratuitamente!</b></h1>
+        <p>O Edu<span style="color: #33cccc;">Cast</span> possui uma enorme gama de conteúdo educacional voltado para diversas áreas!
+        Cadastre agora e tenha acesso ao seu conteúdo excluivo. Conhecimento é poder!</p>
+        <a href="Cadastro.html"><button type="button" class="btn btn-info btn-lg">Inscreva-se!</button></a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      function redirecionar(pag) {
+        if (pag.innerHTML == "Página Inicial") {
+          window.location.replace("Main.html");
+        } else if (pag.innerHTML == "Cadastre-se!") {
+          window.location.replace("Cadastro.html");
+        } else if (pag.innerHTML == "Contato") {
+          window.location.replace("Contato.html");
+        } else if (pag.innerHTML == "Sobre") {
+          window.location.replace("Sobre.html");
+        }
+      }
+
+      function redirecionarMob(pag) {
+        if (pag.getAttribute('title') == "Página Inicial") {
+          window.location.replace("Main.html");
+        } else if (pag.getAttribute('title') == "Cadastre-se!") {
+          window.location.replace("Cadastro.html");
+        } else if (pag.getAttribute('title') == "Contato") {
+          window.location.replace("Contato.html");
+        } else if (pag.getAttribute('title') == "Sobre") {
+          window.location.replace("Sobre.html");
+        }
+      }
+    </script>
+</body>
+<br><br>
+<footer>
+	<div class="container-fluid box-div rodape box-grande">
+    <br>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3">
+        <h5 class="mapa-titulo">REDES SOCIAIS</h5>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-google"></a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3">
+        <h5 class="mapa-titulo">LINKS ÚTEIS</h5>
+        <a href="Cadastro.html">Cadastre-se!</a><br>
+        <a href="Login.html">Acessar agora</a><br>
+        <a href="Contato.html">Contate-nos</a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3">
+        <h5 class="mapa-titulo">LINKS ÚTEIS</h5>
+        <a href="Sobre.html">Sobre</a><br>
+        <a href="Faq.html">FAQ</a><br>
+        <a href="EsqueceuSenha.html">Esqueci minha Senha</a><br>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3">
+        <h5 class="mapa-titulo">LINKS ÚTEIS</h5>
+      </div>
+    </div>
+    <br>
+    <hr class="space-between-footer">
+	  <div class="row">
+       <div class="col-lg-12 col-md-12 col-sm-12">
+          <strong>EduCast</strong><br>
+          Todos os direito reservados © 2018
+       </div>
+    </div>
+	</div>
+
+  <div class="container-fluid box-div rodape box-pequena">
+    <div class="row">
+      <div class="col-lg-2 col-md-2 col-sm-2">
+        <h5 id="mapa-titulo">REDES SOCIAIS</h5>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-google"></a>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2">
+        <h5 id="mapa-titulo">LINKS ÚTEIS</h5>
+        <a href="Cadastro.html">Cadastre-se!</a><br>
+        <a href="Login.html">Acessar agora</a><br>
+        <a href="Contato.html">Contate-nos</a>
+        <a href="Sobre.html">Sobre</a><br>
+        <a href="Faq.html">FAQ</a><br>
+      </div>
+    </div>
+    <div class="row">
+       <div class="col-lg-12 col-md-12 col-sm-12">
+          <strong>EduCast</strong><br>
+          Todos os direito reservados © 2018
+       </div>
+    </div>
+  </div>
+</footer>
+</html>

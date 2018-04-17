@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="Faq.css">
+
+	<meta charset="utf-8">
+	<title>EduCast - FAQ (Perguntas Frequentes)</title>
+</head>
+<body>
+
+	<video autoplay loop muted poster="Imagens/EduCast Background.jpg" id="background">
+        <source src="Videos/main-background.mp4" type="video/mp4">
+        O seu navegador não suporta vídeos do HTML5.
+    </video>
+
+    <div class="container-fluid box-div box-grande">
+  	  <div class="row">
+  	    <div class="col-lg-2 col-md-2 col-sm-2 header-div" onclick="redirecionar(this)">Página Inicial</div>
+  	    <div class="col-lg-2 col-md-2 col-sm-2 header-div" onclick="redirecionar(this)">Cadastre-se!</div>
+  	    <div class="col-lg-2 col-md-2 col-sm-2 header-div" onclick="redirecionar(this)">Contato</div>
+  	    <div class="col-lg-2 col-md-2 col-sm-2 ativado header-div" onclick="redirecionar(this)">Sobre</div>
+  	    <div class="col-lg-4 col-md-4 col-sm-4"><a href="Login.html"><button type="button" class="btn btn-dark header-button">Entrar</button></a></div>
+  	  </div>
+  	</div>
+
+    <div class="container-fluid box-div box-pequena">
+      <div class="row">
+        <div class="col-sm-3 header-div" title="Página Inicial" onclick="redirecionarMob(this)"><i class="fa fa-home mobile-icon"></i></div>
+        <div class="col-sm-3 header-div" title="Cadastre-se!" onclick="redirecionarMob(this)"><i class="fa fa-group mobile-icon"></i></div>
+        <div class="col-sm-3 header-div" title="Contato" onclick="redirecionarMob(this)"><i class="fa fa-commenting-o mobile-icon"></i></div>
+        <div class="col-sm-3 ativado header-div" title="Sobre" onclick="redirecionarMob(this)"><i class="fa fa-newspaper-o mobile-icon"></i></div>
+        <div class="col-sm-4"><a href="Login.html"><button type="button" class="btn btn-dark header-button">Entrar</button></a></div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container-fluid box-titulo">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <hr>
+        <div class="titulo">FAQ</div>
+        <div class="subtitulo">(Perguntas Frequentes)</div>
+        <i class="fa fa-question-circle-o"></i>
+        <hr>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container box-div box-mapa-faq">
+    	<div class="row">
+    		<div class="col-lg-12 col-md-12 col-sm-12">
+    			<h3 id="mapa-faq-titulo"><strong>Mapa do FAQ</strong></h3>
+    		</div>
+    	</div>
+    	<hr style="margin-top: 6px; margin-bottom: 6px; background-color: white;">
+    	<div class="row">
+    		<div class="col-lg-4 col-md-4 col-sm-4 borda-divisora">
+    			<a class="mapa-sumario" href="#p1">1. Como me Cadastrar</a><br>
+    			<a class="mapa-sumario" href="#p2">2. Esqueci minha senha</a><br>
+    			<a class="mapa-sumario" href="#p3">3. Entre em Contato conosco</a>
+    		</div>
+    		<div class="col-lg-4 col-md-4 col-sm-4 borda-divisora">
+    			<a class="mapa-sumario" href="#p4">4. Teste teste</a><br>
+    			<a class="mapa-sumario" href="#p5">5. Teste teste</a><br>
+    			<a class="mapa-sumario" href="#p6">6. Teste teste</a>
+    		</div>
+    		<div class="col-lg-4 col-md-4 col-sm-4">
+    			<a class="mapa-sumario" href="#p7">7. Teste teste</a><br>
+    			<a class="mapa-sumario" href="#p8">8. Teste teste</a><br>
+    			<a class="mapa-sumario" href="#p9">9. Teste teste</a>
+    		</div>
+    	</div>
+    	<hr style="margin-top: 6px; margin-bottom: 6px; background-color: white;">
+    	<div class="row">
+    		<div class="col-lg-12 col-md-12 col-sm-12 compassos">
+	          <i class="fa fa-compass"></i>
+	          <i class="fa fa-compass"></i>
+	          <i class="fa fa-compass"></i>
+	        </div>
+    	</div>
+    </div>
+
+    <br>
+
+    <div class="container box-div box-pergunta">
+    	<div class="row">
+    		<div class="col-lg-12 col-md-12 col-sm-12">
+    			<h3 class="panel-title" id="p1"><a data-toggle="collapse" href="#q1"><strong>1. Como me <span style="color: #33cccc;">Cadastrar</span> no EduCast?</strong></a></h3>
+    		</div>
+    	</div>
+    	<hr style="margin-top: 6px; margin-bottom: 6px; background-color: white;">
+    	<div class="row panel-collapse collapse" id="q1">
+    		<div class="col-lg-12 col-md-12 col-sm-12">
+    			<p>Cadastrar-se em nossa plataforma é totalmente rápido e simples, além de totalmente gratuito! Basta acessar a <a href="Cadastro.html">página de cadastro</a> e preencher o formulário de cadastro conforme solicitado. Após a confirmação, você já possuirá total acesso à nossa plataforma. Bons estudos! :)</p>
+    		</div>
+    	</div>
+    </div>
+
+    <br>
+
+    <div class="container box-div box-pergunta">
+    	<div class="row">
+    		<div class="col-lg-12 col-md-12 col-sm-12">
+    			<h3 class="panel-title" id="p2"><a data-toggle="collapse" href="#q2"><strong>2. Esqueci minha <span style="color: #33cccc;">senha</span>. Como proceder?</strong></a></h3>
+    		</div>
+    	</div>
+    	<hr style="margin-top: 6px; margin-bottom: 6px; background-color: white;">
+    	<div class="row panel-collapse collapse" id="q2">
+    		<div class="col-lg-12 col-md-12 col-sm-12">
+    			<p>Acesse a <a href="EsqueceuSenha.html">página de reenvio de dados</a> e preencha o campo com seu e-mail. Em seguida, uma messagem será enviada para seu endereço, contendo as informações de sua conta.</p>
+    		</div>
+    	</div>
+    </div>
+
+    <br>
+
+    <div class="container box-div box-pergunta">
+    	<div class="row">
+    		<div class="col-lg-12 col-md-12 col-sm-12">
+    			<h3 class="panel-title" id="p3"><a data-toggle="collapse" href="#q3"><strong>3. Como entro em <span style="color: #33cccc;">contato</span> com vocês?</strong></a></h3>
+    		</div>
+    	</div>
+    	<hr style="margin-top: 6px; margin-bottom: 6px; background-color: white;">
+    	<div class="row panel-collapse collapse" id="q3">
+    		<div class="col-lg-12 col-md-12 col-sm-12">
+    			<p>Para nos enviar uma mensagem é também muito simples, basta acessar a <a href="Contato.html">aba Contato</a> e preencher os campos solicitados. Logo após, uma mensagem será instantaneamente enviada para nosso endereço de contato. Caso deseje enviar um e-mail por fora, contate-nos em educast@contato.com</p>
+    		</div>
+    	</div>
+    </div>
+
+    <script type="text/javascript">
+      function redirecionar(pag) {
+        if (pag.innerHTML == "Página Inicial") {
+          window.location.replace("Main.html");
+        } else if (pag.innerHTML == "Cadastre-se!") {
+          window.location.replace("Cadastro.html");
+        } else if (pag.innerHTML == "Contato") {
+          window.location.replace("Contato.html");
+        } else if (pag.innerHTML == "Sobre") {
+          window.location.replace("Sobre.html");
+        }
+      }
+
+      function redirecionarMob(pag) {
+        if (pag.getAttribute('title') == "Página Inicial") {
+          window.location.replace("Main.html");
+        } else if (pag.getAttribute('title') == "Cadastre-se!") {
+          window.location.replace("Cadastro.html");
+        } else if (pag.getAttribute('title') == "Contato") {
+          window.location.replace("Contato.html");
+        } else if (pag.getAttribute('title') == "Sobre") {
+          window.location.replace("Sobre.html");
+        }
+      }
+    </script>
+
+</body>
+<br><br>
+<footer>
+	<div class="container-fluid box-div rodape">
+	  <a href="#" class="fa fa-facebook"></a>
+	  <a href="#" class="fa fa-twitter"></a>
+	  <a href="#" class="fa fa-google"></a>
+	  <br><br>
+	  <strong>EduCast</strong><br>
+	  Todos os direito reservados © 2018
+	</div>
+</footer>
+</html>

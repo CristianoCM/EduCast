@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="Sobre.css">
+
+    <meta charset="utf-8">
+    <title>EduCast - Sobre</title>
+  </head>
+  <body>
+    <video autoplay loop muted poster="Imagens/EduCast Background.jpg" id="background">
+        <source src="Videos/main-background.mp4" type="video/mp4">
+        O seu navegador não suporta vídeos do HTML5.
+    </video>
+
+    <div class="container-fluid box-div box-grande">
+  	  <div class="row">
+  	    <div class="col-lg-2 col-md-2 col-sm-2 header-div" onclick="redirecionar(this)">Página Inicial</div>
+  	    <div class="col-lg-2 col-md-2 col-sm-2 header-div" onclick="redirecionar(this)">Cadastre-se!</div>
+  	    <div class="col-lg-2 col-md-2 col-sm-2 header-div" onclick="redirecionar(this)">Contato</div>
+  	    <div class="col-lg-2 col-md-2 col-sm-2 ativado header-div" onclick="redirecionar(this)">Sobre</div>
+        <div class="col-lg-4 col-md-4 col-sm-4"><a href="Login.html"><button type="button" class="btn btn-dark header-button">Entrar</button></a></div>
+  	  </div>
+  	</div>
+
+    <div class="container-fluid box-div box-pequena">
+      <div class="row">
+        <div class="col-sm-3 header-div" title="Página Inicial" onclick="redirecionarMob(this)"><i class="fa fa-home mobile-icon"></i></div>
+        <div class="col-sm-3 header-div" title="Cadastre-se!" onclick="redirecionarMob(this)"><i class="fa fa-group mobile-icon"></i></div>
+        <div class="col-sm-3 header-div" title="Contato" onclick="redirecionarMob(this)"><i class="fa fa-commenting-o mobile-icon"></i></div>
+        <div class="col-sm-3 ativado header-div" title="Sobre" onclick="redirecionarMob(this)"><i class="fa fa-newspaper-o mobile-icon"></i></div>
+        <div class="col-sm-4"><a href="Login.html"><button type="button" class="btn btn-dark header-button">Entrar</button></a></div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container-fluid box-titulo">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <hr>
+        <div class="titulo">Sob<span style="color: #33cccc;">re</span>:</div>
+        <i class="fa fa-newspaper-o"></i>
+        <hr>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container box-div box-sobre">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h2>O que é o Edu<span style="color: #33cccc;">Cast</span>?</h2>
+          <hr>
+          <p>O EduCast será um serviço de transmissão de vídeos, com uma enorme gama de conteúdo educacional, possuindo desde cursos profissionais, até aqueles desenvolvidos independentemente por pessoas comuns, entretanto, sempre mantendo um padrão de qualidade, de forma a ensinar e capacitar estudiosos e profissionais pelo mundo afora.</p>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container box-div box-sobre">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h2>Quem <span style="color: #33cccc;">nós</span> somos?</h2>
+          <hr>
+          <p>Uma equipe proveniente do Brasil. Fascinados pelo conhecimento e sempre buscando disceminá-lo.</p>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container box-div box-sobre">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h2>Para mais <span style="color: #33cccc;">info</span>rmações:</h2>
+          <hr>
+          <p>Confira o nosso <a href="Faq.html">FAQ</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container box-div box-sobre">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h2>Locali<span style="color: #33cccc;">zação</span>:</h2>
+          <hr>
+          <div id="map" style="width:auto; height:290px; background:yellow;"></div>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function redirecionar(pag) {
+        if (pag.innerHTML == "Página Inicial") {
+          window.location.replace("Main.html");
+        } else if (pag.innerHTML == "Cadastre-se!") {
+          window.location.replace("Cadastro.html");
+        } else if (pag.innerHTML == "Contato") {
+          window.location.replace("Contato.html");
+        } else if (pag.innerHTML == "Sobre") {
+          window.location.replace("Sobre.html");
+        }
+      }
+
+      function redirecionarMob(pag) {
+        if (pag.getAttribute('title') == "Página Inicial") {
+          window.location.replace("Main.html");
+        } else if (pag.getAttribute('title') == "Cadastre-se!") {
+          window.location.replace("Cadastro.html");
+        } else if (pag.getAttribute('title') == "Contato") {
+          window.location.replace("Contato.html");
+        } else if (pag.getAttribute('title') == "Sobre") {
+          window.location.replace("Sobre.html");
+        }
+      }
+    </script>
+
+    <script>
+      function myMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(-20.80, -41.15),
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS3sriGk_PuHJywbrWgpH4h7mLG00f5Rc&callback=myMap"></script>
+
+  </body>
+
+  <br><br>
+  <footer>
+    <div class="container-fluid box-div rodape">
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-twitter"></a>
+      <a href="#" class="fa fa-google"></a>
+      <br><br>
+      <strong>EduCast</strong><br>
+      Todos os direito reservados © 2018
+    </div>
+  </footer>
+</html>

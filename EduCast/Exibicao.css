@@ -1,0 +1,12 @@
+body {
+	background-color: black;
+}
+
+video {
+  height: 100%;
+  width: 82%;
+}
+
+#videoPlaying:hover {
+	cursor: pointer;
+}
