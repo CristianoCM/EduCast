@@ -164,7 +164,7 @@ hr {
 
 #modalEmailInvalidLongTitle, #modalEmailRepeatedLongTitle,
 #modalSenhasDiferentesLongTitle, #modalSenhaPequenaLongTitle,
-#modalSenhaSegurancaLongTitle {
+#modalSenhaSegurancaLongTitle, #modalCadastroFalhaLongTitle {
   color: red;
 }
 

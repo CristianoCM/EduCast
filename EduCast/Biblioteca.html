@@ -54,9 +54,8 @@
 					          <li><a href="#">Todos</a></li>
 					        </ul>
 				    	</div>
-				        <input type="hidden" name="search_param" value="all" id="search_param">
-					    <input class="form-control botao-buscar" type="search" placeholder="Buscar pelo título..." aria-label="Search">
-					    <button class="btn btn-outline-info fa fa-search" type="submit" title="Buscar"></button>
+					    <input class="form-control botao-buscar" type="search" placeholder="Buscar pelo título..." id="txtPesquisa">
+					    <button class="btn btn-outline-info fa fa-search" type="submit" title="Buscar" onclick="return buscar()"></button>
 					</div>
 	  			</div>
 	  		</div>
@@ -124,9 +123,9 @@
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header popular_titulo">Título</div>
+					  <div class="card-header" id="popular_titulo1">Título</div>
 					  <div class="card-body">
-					  	<div class="video popular_video">
+					  	<div class="video" id="popular_video1">
 					  		<a href="Exibicao.html">
 							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
 							      <source src="Videos/main-background.mp4" type="video/mp4">
@@ -135,10 +134,10 @@
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light popular_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light popular_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="popular_duracao1"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light" id="popular_autor1"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
 						</div>
-						<div class="popular_tags">
+						<div id="popular_tags1">
 							<span class="badge badge-pill badge-dark">C#</span>
 					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
 					    	<span class="badge badge-pill badge-dark">MVC</span>
@@ -146,16 +145,16 @@
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text popular_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="popular_descricao1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header popular_titulo">Título</div>
+					  <div class="card-header" id="popular_titulo2">Título</div>
 					  <div class="card-body">
-					  	<div class="video popular_video">
+					  	<div class="video" id="popular_video2">
 						  	<a href="Exibicao.html">
 							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
 							      <source src="Videos/main-background.mp4" type="video/mp4">
@@ -164,10 +163,10 @@
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light popular_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light popular_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="popular_duracao2"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light" id="popular_autor2"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
 						</div>
-						<div class="popular_tags">
+						<div id="popular_tags2">
 							<span class="badge badge-pill badge-dark">C#</span>
 					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
 					    	<span class="badge badge-pill badge-dark">MVC</span>
@@ -175,16 +174,16 @@
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text popular_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="popular_descricao2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header popular_titulo">Título</div>
+					  <div class="card-header" id="popular_titulo3">Título</div>
 					  <div class="card-body">
-					  	<div class="video popular_video">
+					  	<div class="video" id="popular_video3">
 						  	<a href="Exibicao.html">
 							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
 							      <source src="Videos/main-background.mp4" type="video/mp4">
@@ -193,10 +192,10 @@
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light popular_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light popular_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="popular_duracao3"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light" id="popular_autor3"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
 						</div>
-						<div class="popular_tags">
+						<div id="popular_tags3">
 							<span class="badge badge-pill badge-dark">C#</span>
 					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
 					    	<span class="badge badge-pill badge-dark">MVC</span>
@@ -204,16 +203,16 @@
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text popular_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="popular_descricao3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header popular_titulo">Título</div>
+					  <div class="card-header" id="popular_titulo4">Título</div>
 					  <div class="card-body">
-					  	<div class="video popular_video">
+					  	<div class="video" id="popular_video4">
 						  	<a href="Exibicao.html">
 							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
 							      <source src="Videos/main-background.mp4" type="video/mp4">
@@ -222,10 +221,10 @@
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light popular_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light popular_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="popular_duracao4"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light" id="popular_autor4"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
 						</div>
-						<div class="popular_tags">
+						<div id="popular_tags4">
 							<span class="badge badge-pill badge-dark">C#</span>
 					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
 					    	<span class="badge badge-pill badge-dark">MVC</span>
@@ -233,16 +232,16 @@
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text popular_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="popular_descricao4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header popular_titulo">Título</div>
+					  <div class="card-header" id="popular_titulo5">Título</div>
 					  <div class="card-body">
-					  	<div class="video popular_video">
+					  	<div class="video" id="popular_video5">
 						  	<a href="Exibicao.html">
 							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
 							      <source src="Videos/main-background.mp4" type="video/mp4">
@@ -251,10 +250,10 @@
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light popular_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light popular_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="popular_duracao5"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light" id="popular_autor5"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
 						</div>
-						<div class="popular_tags">
+						<div id="popular_tags5">
 							<span class="badge badge-pill badge-dark">C#</span>
 					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
 					    	<span class="badge badge-pill badge-dark">MVC</span>
@@ -262,7 +261,7 @@
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text popular_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="popular_descricao5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  </div>
 					</div>
 				</div>
@@ -304,9 +303,9 @@
 
 				<div class="col-lg-2 col-md-2 col-sm-2">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header recentes_titulo">Título</div>
+					  <div class="card-header" id="recentes_titulo1">Título</div>
 					  <div class="card-body">
-					  	<div class="video recentes_video">
+					  	<div class="video" id="recentes_video1">
 						  	<a href="Exibicao.html">
 							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
 							      <source src="Videos/main-background.mp4" type="video/mp4">
@@ -315,10 +314,10 @@
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light recentes_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light recentes_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="recentes_duracao1"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light" id="recentes_autor1"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
 						</div>
-						<div class="recentes_tags">
+						<div id="recentes_tags1">
 							<span class="badge badge-pill badge-dark">C#</span>
 					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
 					    	<span class="badge badge-pill badge-dark">MVC</span>
@@ -326,16 +325,16 @@
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text recentes_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="recentes_descricao1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-2 col-sm-2">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header recentes_titulo">Título</div>
+					  <div class="card-header" id="recentes_titulo2">Título</div>
 					  <div class="card-body">
-					  	<div class="video recentes_video">
+					  	<div class="video" id="recentes_video2">
 						  	<a href="Exibicao.html">
 							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
 							      <source src="Videos/main-background.mp4" type="video/mp4">
@@ -344,10 +343,10 @@
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light recentes_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light recentes_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="recentes_duracao2"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light" id="recentes_autor2"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
 						</div>
-						<div class="recentes_tags">
+						<div id="recentes_tags2">
 							<span class="badge badge-pill badge-dark">C#</span>
 					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
 					    	<span class="badge badge-pill badge-dark">MVC</span>
@@ -355,16 +354,16 @@
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text recentes_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="recentes_descricao2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-2 col-sm-2">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header recentes_titulo">Título</div>
+					  <div class="card-header" id="recentes_titulo3">Título</div>
 					  <div class="card-body">
-					  	<div class="video recentes_video">
+					  	<div class="video" id="recentes_video3">
 						  	<a href="Exibicao.html">
 							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
 							      <source src="Videos/main-background.mp4" type="video/mp4">
@@ -373,10 +372,10 @@
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light recentes_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light recentes_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="recentes_duracao3"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light" id="recentes_autor3"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
 						</div>
-						<div class="recentes_tags">
+						<div id="recentes_tags3">
 							<span class="badge badge-pill badge-dark">C#</span>
 					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
 					    	<span class="badge badge-pill badge-dark">MVC</span>
@@ -384,16 +383,16 @@
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text recentes_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="recentes_descricao3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-2 col-sm-2">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header recentes_titulo">Título</div>
+					  <div class="card-header" id="recentes_titulo4">Título</div>
 					  <div class="card-body">
-					  	<div class="video recentes_video">
+					  	<div class="video" id="recentes_video4">
 						  	<a href="Exibicao.html">
 							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
 							      <source src="Videos/main-background.mp4" type="video/mp4">
@@ -402,10 +401,10 @@
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light recentes_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light recentes_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="recentes_duracao4"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light" id="recentes_autor4"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
 						</div>
-						<div class="recentes_tags">
+						<div id="recentes_tags4">
 							<span class="badge badge-pill badge-dark">C#</span>
 					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
 					    	<span class="badge badge-pill badge-dark">MVC</span>
@@ -413,16 +412,16 @@
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text recentes_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="recentes_descricao4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-2 col-sm-2">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header recentes_titulo">Título</div>
+					  <div class="card-header" id="recentes_titulo5">Título</div>
 					  <div class="card-body">
-					  	<div class="video recentes_video">
+					  	<div class="video" id="recentes_video5">
 						  	<a href="Exibicao.html">
 							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
 							      <source src="Videos/main-background.mp4" type="video/mp4">
@@ -431,10 +430,10 @@
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light recentes_duracao"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light recentes_autor"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="recentes_duracao5"><span style="color: #3399ff;">Duração:</span> 3:12</span>
+							<span class="badge badge-pill badge-light" id="recentes_autor5"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
 						</div>
-						<div class="recentes_tags">
+						<div id="recentes_tags5">
 							<span class="badge badge-pill badge-dark">C#</span>
 					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
 					    	<span class="badge badge-pill badge-dark">MVC</span>
@@ -442,7 +441,7 @@
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text recentes_descricao">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="recentes_descricao5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  </div>
 					</div>
 				</div>
@@ -452,14 +451,6 @@
 		</div>
 
 	</section>
-
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12">
-				<button type="submit" name="button" id="getFromDB">PUXAR DO BANCO</button>
-			</div>
-		</div>
-	</div>
 
 	<script type="text/javascript">
 		var figure = $(".video").hover( hoverVideo, hideVideo );
@@ -490,45 +481,114 @@
 			});
 		});
 
-		var pag_popular = 1; // 5 Primeiros vídeos do popular
+		function buscar() {
+			window.location.replace('Busca.html?pesquisa=' + $('#txtPesquisa').val() + '&disciplina=' + $('.search-panel span#search_concept').text());
+			return false;
+		}
+
+		var pag_popular;
+		var pag_recentes;
 
 		var popularNext = $('#popular_next').on('click', function() {
+			pag_popular += 1;
+			rodarAjaxConsulta('consulta_popular.php', pag_popular);
+		});
+
+		var popularPrev = $('#popular_prev').on('click', function() {
+			if (pag_popular > 0)
+				pag_popular -= 1;
+
+			rodarAjaxConsulta('consulta_popular.php', pag_popular);
+		});
+
+		var recentesNext = $('#recentes_next').on('click', function() {
+			pag_recentes += 1;
+			rodarAjaxConsulta('consulta_recente.php', pag_recentes);
+		});
+
+		var recentesPrev = $('#recentes_prev').on('click', function() {
+			if (pag_recentes > 0)
+				pag_recentes -= 1;
+
+			rodarAjaxConsulta('consulta_recente.php', pag_recentes);
+		});
+
+		window.onload = function() {
+		  	pag_popular = 0; 	// 5 Primeiros vídeos do popular
+		  	pag_recentes = 0;	// 5 Primeiros vídeos do recentes
+		  	rodarAjaxConsulta('consulta_popular.php', pag_popular);
+		  	rodarAjaxConsulta('consulta_recente.php', pag_recentes);
+		};
+
+		function rodarAjaxConsulta(arquivo_php, pag) {
 			$.ajax({
 				type: "POST",
-				url: 'Database/consulta_popular_next.php',
-				data: {page: pag_popular},
+				url: 'Database/' + arquivo_php,
+				data: {page: pag},
 				success: function(result) {
 					var vRes = result.split(" ");
 					var tVect = vRes.length;
 					var whatMatters = [];
 
-					for (var i = tVect - 1; i >= tVect - 8; i--) {
+					for (var i = tVect - 1; i >= tVect - 40; i--) {
 						whatMatters.push(vRes[i]);
 					}
 
-					$("#populares").fadeOut(function() {
-					   	$('.popular_titulo').html(whatMatters[6]);
-						$(".popular_duracao").html("<span style='color: #3399ff;'>Duração:</span> " + whatMatters[4]);
-					    $(".popular_video").html("<video loop muted preload='none' poster='" + whatMatters[3] + "'><source src='" + whatMatters[2] + "' type='video/mp4'>Seu navegador não suporta a tag de vídeo HTML5.</video>");
-					    $(".popular_descricao").html(whatMatters[5]);
+					var vez = 1;
+					var id = 0;
 
-					    $(".popular_autor").html("<span style='color: #3399ff;'>Autor:</span> " + whatMatters[1]);
+					if (arquivo_php == "consulta_popular.php") {
+						$("#populares").fadeOut(function() {
+							do {
+								$('#popular_titulo' + vez).html(whatMatters[id + 6]);
+								$("#popular_duracao" + vez).html("<span style='color: #3399ff;'>Duração:</span> " + whatMatters[id + 4]);
+							    $("#popular_video" + vez).html("<video loop muted preload='none' poster='" + whatMatters[id + 3] + "'><source src='" + whatMatters[id + 2] + "' type='video/mp4'>Seu navegador não suporta a tag de vídeo HTML5.</video>");
+							    $("#popular_descricao" + vez).html(whatMatters[id + 5]);
 
-					    var tag_vect = whatMatters[0].split(",");
-					    var tag_str = "";
-					    for (var i = 0; i < tag_vect.length; i++) {
-					    	tag_str += "<span class='badge badge-pill badge-dark'>" + tag_vect[i] + "</span>";
-					    }
+							    $("#popular_autor" + vez).html("<span style='color: #3399ff;'>Autor:</span> " + whatMatters[id + 1]);
 
-					    $(".popular_tags").html(tag_str);
+							    var tag_vect = whatMatters[id].split(",");
+							    var tag_str = "";
+							    for (var i = 0; i < tag_vect.length; i++) {
+							    	tag_str += "<span class='badge badge-pill badge-dark'>" + tag_vect[i] + "</span>";
+							    }
 
-						fadeInElement($("#populares"));
-					});
+							    $("#popular_tags" + vez).html(tag_str);
 
-					pag_popular += 1;
+							    id += 8;
+							    vez += 1;
+							} while (vez < 6);
+
+							fadeInElement($("#populares"));
+						});
+					} else {
+						$("#recentes").fadeOut(function() {
+							do {
+								$('#recentes_titulo' + vez).html(whatMatters[id + 6]);
+								$("#recentes_duracao" + vez).html("<span style='color: #3399ff;'>Duração:</span> " + whatMatters[id + 4]);
+							    $("#recentes_video" + vez).html("<video loop muted preload='none' poster='" + whatMatters[id + 3] + "'><source src='" + whatMatters[id + 2] + "' type='video/mp4'>Seu navegador não suporta a tag de vídeo HTML5.</video>");
+							    $("#recentes_descricao" + vez).html(whatMatters[id + 5]);
+
+							    $("#recentes_autor" + vez).html("<span style='color: #3399ff;'>Autor:</span> " + whatMatters[id + 1]);
+
+							    var tag_vect = whatMatters[id].split(",");
+							    var tag_str = "";
+							    for (var i = 0; i < tag_vect.length; i++) {
+							    	tag_str += "<span class='badge badge-pill badge-dark'>" + tag_vect[i] + "</span>";
+							    }
+
+							    $("#recentes_tags" + vez).html(tag_str);
+
+							    id += 8;
+							    vez += 1;
+							} while (vez < 6);
+
+							fadeInElement($("#recentes"));
+						});
+					}
 				}
 			});
-		});
+		}
 
 	</script>
 

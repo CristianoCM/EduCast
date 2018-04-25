@@ -128,13 +128,25 @@
         var usu = $("#inputUsuario").val();
         var pas = $("#inputPassword").val();
         // Converter senha para hash
+
         // Verifcar no banco de dados
-        var v = true;
-        if (v) {
-          window.location.replace("Biblioteca.html");
-        } else {        
-          $('#modalAccountInvalid').modal('show');
-        }
+        $.ajax({
+          type: "POST",
+          url: 'Database/autenticar_usuario.php',
+          data: {usuario: usu, senha: pas},
+          success: function(result) {
+            var vRes = result.split(" ");
+            var r = vRes[vRes.length - 1];
+
+            if (r == "OK") {
+              window.location.replace("Biblioteca.html");
+            } else {
+              $('#modalAccountInvalid').modal('show');
+              $("#inputUsuario").css("border-color", "red");
+              $("#inputPassword").css("border-color", "red");
+            }
+          }
+        });
       }
     </script>
   </body>

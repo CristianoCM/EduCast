@@ -212,6 +212,25 @@
     </div>
   </div>
 
+  <div class="modal fade" id="modalCadastroFalha" tabindex="-1" role="dialog" aria-labelledby="modalCadastroFalhaTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modalCadastroFalhaLongTitle">Erro</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Ocorreu uma falha durante o cadastro do usuário: <strong id="txtFalhaCadastro"></strong>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 	<script type="text/javascript">
       function redirecionar(pag) {
         if (pag.innerHTML == "Página Inicial") {
@@ -279,13 +298,47 @@
           $('#modalSenhaSeguranca').modal('show');
           vGeral = false;
         }
+		
+		// E-mail não pode ter sido utilizado para cadastro anteriormente
+        $.ajax({
+			type: "POST",
+			url: 'Database/´verificar_email.php',
+			data: {ema: ema},
+			success: function(result) {
+			  var vRes = result.split(" ");
+			  var tRes = vRes.length;
+			  var stat = vRes[tRes - 1];
+
+			  if (stat != "OK") {
+				vGeral = false;
+				$("#txtFalhaCadastro").html(vRes);
+				$('#modalCadastroFalha').modal('show');
+			  }
+			}
+		});
 
         if (vGeral) {
           $("#inputEmail").val("");
           $("#inputSenha").val("");
           $("#inputSenhaNov").val("");
 
-          $('#modalCadastroSucesso').modal('show');
+          $.ajax({
+            type: "POST",
+            url: 'Database/´cadastrar_usuario.php',
+            data: {ema: ema, sen: sen},
+            success: function(result) {
+              var vRes = result.split(" ");
+              var tRes = vRes.length;
+              var stat = vRes[tRes - 1];
+
+              if (stat == "OK") {
+                $('#modalCadastroSucesso').modal('show');
+              } else {
+                $("#txtFalhaCadastro").html(vRes);
+                $('#modalCadastroFalha').modal('show');
+              }
+            }
+          });
         }
 
       }
