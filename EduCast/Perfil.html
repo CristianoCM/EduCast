@@ -54,9 +54,8 @@
 					          <li><a href="#">Todos</a></li>
 					        </ul>
 				    	</div>
-				        <input type="hidden" name="search_param" value="all" id="search_param">
-					    <input class="form-control botao-buscar" type="search" placeholder="Buscar pelo título..." aria-label="Search">
-					    <button class="btn btn-outline-info fa fa-search" type="submit" title="Buscar"></button>
+				        <input class="form-control botao-buscar" type="search" placeholder="Buscar pelo título..." id="txtPesquisa">
+					    <button class="btn btn-outline-info fa fa-search" type="submit" title="Buscar" onclick="return buscar()"></button>
 					</div>
 	  			</div>
 	  		</div>
@@ -85,14 +84,15 @@
 						<form class="md-form">
 						    <div class="file-field">
 						        <label for='selecao-arquivo'><i class="fa fa-cloud-upload" aria-hidden="true"></i> Carregar Imagem</label>
-								<input id='selecao-arquivo' type='file'>
+								<input id='selecao-arquivo' type='file' accept="image/*">
 								<div id="info_carregar_imagem">Tamanho máximo: 1Mb</div>
 						    </div>
 						</form>
 					</span>
 					<a class="list-group-item list-group-item-action list-group-item-info"><span id="txtNome">Nome do Usuário <span id="editNome" class="fa fa-edit pull-right" title="Editar nome" style="font-size: 24px;" onclick="inserirBoxNome()"></span></span></a>
-					<a class="list-group-item list-group-item-action">E-mail</a>
-					<a class="list-group-item list-group-item-action list-group-item-info">Data de Cadastro</a>
+					<a id="txtMailUser" class="list-group-item list-group-item-action">E-mail</a>
+					<a id="txtDtUser" class="list-group-item list-group-item-action list-group-item-info">Data de Cadastro</a>
+					<a class="list-group-item list-group-item-action text-center"><button class="btn btn-danger" data-toggle="modal" onclick="deletarConta()">Deletar Conta</button></a>
 				</span>
 			</div>
 			<!-- Vídeo -->
@@ -105,15 +105,89 @@
 					</span>
 					<a class="list-group-item list-group-item-action">
 						Reproduzir automaticamente
-		                <input type="checkbox" checked="checked" class="pull-right">
+		                <input id="reproducaoAutomatica" type="checkbox" class="pull-right">
 					</a>
 				</span>
 			</div>
+
+			<div class="col-lg-4 col-md-4 col-sm-4"></div>
+		</div>
+		<!-- Ações Globais -->
+		<br>
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4"></div>
+			<div id="acoesGlobais" class="col-lg-4 col-md-4 col-sm-4 bg-light text-center">
+				<span style="font-weight: bold; font-family: verdana; font-size: 24px;">...</span>
+				<button id="butSalvar" class="btn btn-primary" onclick="salvarAlteracoes()">Salvar Alterações</button>
+				<span style="font-weight: bold; font-family: verdana; font-size: 24px;">...</span>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4"></div>
 		</div>
 	</div>
 
+	<div class="modal fade" id="modalTemCerteza" tabindex="-1" role="dialog" aria-labelledby="modalTemCertezaTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modalTemCertezaLongTitle" style="color: red;">Aviso</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Esta ação não pode ser desfeita! Deseja <strong>realmente</strong> deletar sua conta?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="deletarContaMesmo()">Sim</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalFalha" tabindex="-1" role="dialog" aria-labelledby="modalFalhaTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modalFalhaLongTitle" style="color: red;">Aviso</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Erro inesperado: <span id="txtFalhaDel"></span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="deletarContaMesmo()">Sim</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalSucUpd" tabindex="-1" role="dialog" aria-labelledby="modalSucUpdTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modalSucUpdLongTitle" style="color: forestgreen;">Aviso</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Perfil foi atualizado com <strong>sucesso</strong>!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 	<script type="text/javascript">
 		$(document).ready(function(e) {
+			verificarSessao();
+
 		    $('.search-panel .dropdown-menu').find('a').click(function(e) {
 				e.preventDefault();
 				var param = $(this).attr("href").replace("#","");
@@ -123,9 +197,25 @@
 			});
 		});
 
+		function verificarSessao() {
+			$.ajax({
+				type: "POST",
+				url: 'Database/verificar_sessao.php',
+				success: function(result) {
+					if (result.length > 100)
+						window.location.replace('Login.html');
+				}
+			});
+		}
+
 		$("#selecao-arquivo").change(function() {
 		  readURL(this);
 		});
+
+		function buscar() {
+			window.location.replace('Busca.html?pesquisa=' + $('#txtPesquisa').val() + '&disciplina=' + $('.search-panel span#search_concept').text());
+			return false;
+		}
 
 		function readURL(input) {
 		  if (input.files && input.files[0]) {
@@ -139,52 +229,167 @@
 			    }
 
 			    reader.readAsDataURL(input.files[0]);
-			  	}
+		  	}
 		  }
 		}
 
 		function inserirBoxNome() {
-			$("#txtNome").html("<input type='text' name='fname' placeholder='Insira seu nome' maxlength='20' style='width: 75%;'> <button type='submit' name='buttonEnviarNome' class='btn btn-info btn-sm' id='insertNomeDb'>Ok</button> <button type='submit' name='buttonCancelarNome' class='btn btn-danger btn-sm' id='cancelNomeDb' onclick='tirarBoxNome()'>X</button>");
+			$("#txtNome").html("<input id='txtNomeUsuario' type='text' name='fname' placeholder='Insira seu nome' maxlength='20' style='width: 75%;'> <button type='submit' name='buttonEnviarNome' class='btn btn-info btn-sm' id='insertNomeDb' onclick='insertNomeUsuario()'>Ok</button> <button type='submit' name='buttonCancelarNome' class='btn btn-danger btn-sm' id='cancelNomeDb' onclick='cancelNomeUsuario()'>X</button>");
 		}
 
 		function tirarBoxNome(nome) {
 			$("#txtNome").html(nome + " <span id='editNome' class='fa fa-edit pull-right' title='Editar nome' style='font-size: 24px;' onclick='inserirBoxNome()'></span>");
 		}
 
-		var cancelNomeUsuario = $('#cancelNomeDb').on('click', function() {
+		function cancelNomeUsuario() {
 			$.ajax({
 				type: "POST",
 				url: 'Database/get_nome_usuario.php',
 				success: function(result) {
-					tirarBoxNome(result.split("|")[result.length - 1]);
+					var theName = result.split("|");
+					theName = theName[theName.length - 1];
+					if (theName == "")
+						theName = "Nome do Usuário";
+					tirarBoxNome(theName);
 				}
 			});
-		});
+		}
 
-		var insertNomeUsuario = $('#insertNomeDb').on('click', function() {
+		function insertNomeUsuario() {
+			var newName = $("#txtNomeUsuario").val();
 			$.ajax({
 				type: "POST",
 				url: 'Database/set_nome_usuario.php',
-				data: {nome: $("#insertNomeDb").val()},
+				data: {nome: newName},
 				success: function(result) {
-					if (result.split("|")[result.length - 1] == "SHOW") {
-						tirarBoxNome($("#insertNomeDb").val());
+					var rrr = result.split("|");
+					if (rrr[rrr.length - 1] == "SHOW") {
+						tirarBoxNome(newName);
 					} else {
 						tirarBoxNome("Nome do Usuário");
 					}
 				}
 			});
-		});
+		}
 
 		window.onload = function() {
-		  	$.ajax({
+		  	cancelNomeUsuario();
+		  	getUserInfo();
+		  	getUserImage();
+		  	getVideoPreferences();
+		};
+
+		function getUserInfo() {
+			$.ajax({
 				type: "POST",
-				url: 'Database/get_nome_usuario.php',
+				url: 'Database/get_info_usuario.php',
 				success: function(result) {
-					tirarBoxNome(result.split("|")[result.length - 1]);
+					var info = result.split("|");
+					var m = info[info.length - 2];
+					var d = info[info.length - 1];
+					$("#txtMailUser").html(m);
+					$("#txtDtUser").html(d);
 				}
 			});
-		};
+		}
+
+		function getUserImage() {
+			$.ajax({
+				type: "POST",
+				url: 'Database/get_img_usuario.php',
+				success: function(result) {
+					var info = result.split("|");
+					var info2 = info[info.length - 1].split("/");
+					var i = info2[info2.length - 2] + "/" + info2[info2.length - 1];
+					if (i != "NOPS")
+						$('#profileImage').attr('src', i);
+				}
+			});
+		}
+
+		function getVideoPreferences() {
+			$.ajax({
+				type: "POST",
+				url: 'Database/get_video_preferences.php',
+				success: function(result) {
+					var v1 = result.split("|");
+					var v2 = v1[v1.length - 1];
+					if (v2 != "NOPS") {
+						if (v2 == 'S') {
+							$('#reproducaoAutomatica').attr('checked', 'checked');
+						}
+						else {
+							$('#reproducaoAutomatica').removeAttr('checked');
+						}
+					}
+				}
+			});
+		}
+
+		function deletarConta() {
+			$('#modalTemCerteza').modal('show');
+		}
+
+		function deletarContaMesmo() {
+			$.ajax({
+				type: "POST",
+				url: 'Database/deletar_usuario.php',
+				success: function(result) {
+					var rrr = result.split("|");
+					var rr = rrr[rrr.length - 1];
+					if (rr != "OK")
+					{
+						$("#txtFalhaDel").html(rr);
+						$('#modalFalha').modal('show');
+					}
+				}
+			});
+		}
+
+		function salvarAlteracoes() {
+			// Rodar ainda não está sendo considerado na atualização
+			var rodar = ($("reproducaoAutomatica").checked) ? 'S' : 'N';
+			var imgPerfil = $("#selecao-arquivo").prop('files')[0];
+			if (imgPerfil == undefined) {
+				imgPerfil = 'N';
+			} else {
+				var formData = new FormData();
+    			if (!!imgPerfil.type.match(/image.*/)) {
+    				formData.append("file", imgPerfil);
+    				$.ajax({
+						type: "POST",
+						url: 'Database/atualizar_perfil.php',
+						dataType: 'text',
+						cache: false,
+				        contentType: false,
+				        processData: false,
+				        data: formData,
+						success: function(result) {
+							var rrr = result.split("|");
+							var rr = rrr[rrr.length - 1];
+							if (rr != "SHOW")
+							{
+								$("#txtFalhaDel").html(rr);
+								$('#modalFalha').modal('show');
+							} else {
+								$('#modalSucUpd').modal('show');
+							}
+						}
+					});
+    			} else {
+    				alert("Arquivo carregado no Perfil deve ser uma imagem.");
+    			}
+			}
+		}
+
+		var corpo = document.getElementsByTagName("body")[0];
+
+		corpo.addEventListener("keyup", function(event) {
+			event.preventDefault();
+			if (event.keyCode === 13) {
+			  document.getElementById("butSalvar").click();
+			}
+		});
 	</script>
 
 </body>

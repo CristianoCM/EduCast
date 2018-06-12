@@ -2,7 +2,7 @@ CREATE TABLE Usuario (
 	codigo			SERIAL PRIMARY KEY,
 	nome			VARCHAR(80),
 	email			VARCHAR(100) NOT NULL,
-	senha			VARCHAR(30) NOT NULL,
+	senha			VARCHAR(255) NOT NULL,
 	dataCadastro    TIMESTAMP DEFAULT NOW(),
 	tipo            NUMERIC DEFAULT 1
 );
@@ -41,4 +41,12 @@ CREATE TABLE Visualizados (
 	videoId				BIGINT UNSIGNED NOT NULL,
     FOREIGN KEY (usuarioId) REFERENCES Usuario (codigo),
     FOREIGN KEY (videoId) REFERENCES Video (codigo)
+);
+
+CREATE TABLE Perfil (
+	codigo 				SERIAL PRIMARY KEY,
+	usuarioId			BIGINT UNSIGNED NOT NULL,
+	caminhoFoto			VARCHAR(120),
+	rodarAutomatico		VARCHAR(1) DEFAULT 'S',
+	FOREIGN KEY (usuarioId) REFERENCES Usuario (codigo)
 );

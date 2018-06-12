@@ -18,7 +18,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
-	  <a class="navbar-brand">
+	  <a class="navbar-brand" href="Main.html">
 	    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmqfbrxTA2rPM4c4WBE5dNth3ovxw2YbMrFXG5S4rFznAaJwkY" width="30" height="30" class="d-inline-block align-top" alt="">
 	    Edu<span style="color: #33cccc;">Cast</span>
 	  </a>
@@ -28,7 +28,7 @@
 	        <a class="nav-link" href="Biblioteca.html">Acervo</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Perfil</a>
+	        <a class="nav-link" href="Perfil.html">Perfil</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="Login.html">Sair</a>
@@ -82,6 +82,12 @@
             	<a class="btn btn-outline-secondary next seta-direita-pop" title="Itens Posteriores" id="busca_next">
             		<i class="fa fa-lg fa-chevron-right"></i>
             	</a>
+            	<div id="txtBuscaLimiteLast" style="display: none;">
+            		<span style="color: red;">Última página alcançada</span>
+            	</div>
+            	<div id="txtBuscaLimiteFirst" style="display: none;">
+            		<span style="color: red;">Primeira página alcançada</span>
+            	</div>
             </div>
             <div class="col-lg-5 col-md-4 col-sm-4"></div>
         </div>
@@ -97,145 +103,135 @@
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="busca_titulo1">Título</div>
+					  <div class="card-header" id="busca_titulo1"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoB1"></div>
 					  	<div class="video" id="busca_video1">
-					  		<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoB(this)" id="aVideoB1">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Your browser does not support the video tag.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="busca_duracao1"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="busca_autor1"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="busca_duracao1"></span>
+							<span class="badge badge-pill badge-light" id="busca_autor1"></span>
 						</div>
 						<div id="busca_tags1">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="busca_descricao1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="busca_descricao1"></p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="busca_titulo2">Título</div>
+					  <div class="card-header" id="busca_titulo2"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoB2"></div>
 					  	<div class="video" id="busca_video2">
-					  		<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoB(this)" id="aVideoB2">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Your browser does not support the video tag.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="busca_duracao2"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="busca_autor2"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="busca_duracao2"></span>
+							<span class="badge badge-pill badge-light" id="busca_autor2"></span>
 						</div>
 						<div id="busca_tags2">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="busca_descricao2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="busca_descricao2"></p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="busca_titulo3">Título</div>
+					  <div class="card-header" id="busca_titulo3"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoB3"></div>
 					  	<div class="video" id="busca_video3">
-					  		<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoB(this)" id="aVideoB3">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Your browser does not support the video tag.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="busca_duracao3"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="busca_autor3"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="busca_duracao3"></span>
+							<span class="badge badge-pill badge-light" id="busca_autor3"></span>
 						</div>
 						<div id="busca_tags3">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="busca_descricao3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="busca_descricao3"></p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="busca_titulo4">Título</div>
+					  <div class="card-header" id="busca_titulo4"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoB4"></div>
 					  	<div class="video" id="busca_video4">
-					  		<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoB(this)" id="aVideoB4">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Your browser does not support the video tag.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="busca_duracao4"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="busca_autor4"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="busca_duracao4"></span>
+							<span class="badge badge-pill badge-light" id="busca_autor4"></span>
 						</div>
 						<div id="busca_tags4">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="busca_descricao4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="busca_descricao4"></p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="busca_titulo5">Título</div>
+					  <div class="card-header" id="busca_titulo5"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoB5"></div>
 					  	<div class="video" id="busca_video5">
-					  		<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoB(this)" id="aVideoB5">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Your browser does not support the video tag.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="busca_duracao5"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="busca_autor5"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="busca_duracao5"></span>
+							<span class="badge badge-pill badge-light" id="busca_autor5"></span>
 						</div>
 						<div id="busca_tags5">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="busca_descricao5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="busca_descricao5"></p>
 					  </div>
 					</div>
 				</div>
@@ -255,6 +251,21 @@
 
 
 	<script type="text/javascript">
+		$(document).ready(function(e) {
+			verificarSessao();
+		});
+
+		function verificarSessao() {
+			$.ajax({
+				type: "POST",
+				url: 'Database/verificar_sessao.php',
+				success: function(result) {
+					if (result.length > 100)
+						window.location.replace('Login.html');
+				}
+			});
+		}
+		
 		var figure = $(".video").hover( hoverVideo, hideVideo );
 
 		function hoverVideo(e) {
@@ -277,12 +288,20 @@
 
 		var buscaNext = $('#busca_next').on('click', function() {
 			pag_busca += 1;
+			$('#txtBuscaLimiteFirst').hide();
 			rodarAjaxConsulta();
 		});
 
 		var buscaPrev = $('#busca_prev').on('click', function() {
-			if (pag_busca > 0)
+			$('#txtBuscaLimiteLast').hide();
+
+			if (pag_busca > 0) {
 				pag_busca -= 1;
+				$('#txtBuscaLimiteFirst').hide();
+			} else {
+				$('#txtBuscaLimiteFirst').show();
+				return;
+			}
 
 			rodarAjaxConsulta();
 		});
@@ -298,7 +317,9 @@
 				where_parametro = "*";
 
 			if (where_parametro2 == null || where_parametro2 == "Conteúdo" || where_parametro2 == "Todos")
-				where_parametro2 = "*"
+				where_parametro2 = "*";
+			else if (where_parametro2 == "Programação")
+				where_parametro2 = "Programacao";
 
 			$("#txtPesquisado").html("<b style='color: #3399ff'>Filtros:</b> Título = " + where_parametro + " | Disciplina = " + where_parametro2);
 
@@ -315,44 +336,60 @@
 			return false;
 		}
 
+		function exibirVideoB(e) {
+			var fE = e.id[e.id.length - 1];
+			var vId = $("#divVideoB" + fE).html();
+			window.location.replace('Exibicao.html?v=' + vId);
+			return false;
+		}
+
 		function rodarAjaxConsulta() {
 			$.ajax({
 				type: "POST",
 				url: 'Database/consulta_busca.php',
 				data: {page: pag_busca, whe: where_parametro, whe2: where_parametro2},
 				success: function(result) {
-					var vRes = result.split(" ");
-					var tVect = vRes.length;
-					var whatMatters = [];
-
-					for (var i = tVect - 1; i >= tVect - 40; i--) {
-						whatMatters.push(vRes[i]);
-					}
+					var whatMatters = result.split("html>")[3].split("¬");
 
 					var vez = 1;
 					var id = 0;
 
+					if (whatMatters.length == 1) {
+						$('#txtBuscaLimiteLast').show();
+						pag_busca -= 1;
+						return;
+					}
+
+					while (whatMatters.length < 41) {
+						whatMatters.push("");
+					}
+
 					$("#busca").fadeOut(function() {
-						do {
-							$('#busca_titulo' + vez).html(whatMatters[id + 6]);
-							$("#busca_duracao" + vez).html("<span style='color: #3399ff;'>Duração:</span> " + whatMatters[id + 4]);
-						    $("#busca_video" + vez).html("<video loop muted preload='none' poster='" + whatMatters[id + 3] + "'><source src='" + whatMatters[id + 2] + "' type='video/mp4'>Seu navegador não suporta a tag de vídeo HTML5.</video>");
-						    $("#busca_descricao" + vez).html(whatMatters[id + 5]);
+						if (whatMatters[1] != "NOPS") {
+							do {
+								$("#divVideoB" + vez).html(whatMatters[id + 1]);
+								$('#busca_titulo' + vez).html(whatMatters[id + 2]);
+								$("#busca_duracao" + vez).html("<span style='color: #3399ff;'>Duração:</span> " + whatMatters[id + 4]);
+							    $("#busca_video" + vez).html("<a onclick='exibirVideoB(this)' id='aVideoB" + vez + "'><video loop muted preload='none' poster='" + whatMatters[id + 5] + "'><source src='" + whatMatters[id + 6] + "' type='video/mp4'>Seu navegador não suporta a tag de vídeo HTML5.</video></a>");
+							    $("#busca_descricao" + vez).html(whatMatters[id + 3]);
 
-						    $("#busca_autor" + vez).html("<span style='color: #3399ff;'>Autor:</span> " + whatMatters[id + 1]);
+							    $("#busca_autor" + vez).html("<span style='color: #3399ff;'>Autor:</span> " + whatMatters[id + 7]);
 
-						    var tag_vect = whatMatters[id].split(",");
-						    var tag_str = "";
-						    for (var i = 0; i < tag_vect.length; i++) {
-						    	tag_str += "<span class='badge badge-pill badge-dark'>" + tag_vect[i] + "</span>";
-						    }
+							    var tag_vect = whatMatters[id + 8].split("|");
+							    var tag_str = "";
+							    for (var i = 0; i < tag_vect.length; i++) {
+							    	tag_str += "<span class='badge badge-pill badge-dark'>" + tag_vect[i] + "</span>";
+							    }
 
-						    $("#busca_tags" + vez).html(tag_str);
+							    $("#busca_tags" + vez).html(tag_str);
 
-						    id += 7;
-						    vez += 1;
-						} while (vez < 6);
-
+							    id += 8;
+							    vez += 1;
+							} while (vez < 6);
+						} else {
+							$('#txtBuscaLimiteLast').show();
+							pag_popular -= 1;
+						}
 						fadeInElement($("#busca"));
 					});
 				}

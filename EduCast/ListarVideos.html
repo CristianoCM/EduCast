@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="ListarVideos.css">
+
+	<meta charset="utf-8">
+	<title>Listagem de Vídeos - Interno</title>
+</head>
+<body>
+
+	<div class="container">
+		<br>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<h1>- Listagem de Vídeos</h1>
+				<hr>
+			</div>
+		</div>
+		<br>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<table class="table table-striped bg-light table-bordered">
+					<thead>
+						<tr>
+							<th>Código</th>
+							<th>Título</th>
+							<th>Descrição</th>
+							<th>Caminho</th>
+							<th>Formato</th>
+							<th>Tamanho</th>
+							<th>Duração</th>
+							<th>Miniatura</th>
+							<th>Data Cadastro</th>
+						</tr>
+					</thead>
+					<tbody id="corpoTabela">
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		
+		window.onload = function() {
+		  	carregarTabela();
+		};
+
+		function carregarTabela() {
+			$.ajax({
+				type: "POST",
+				url: 'Database/get_all_videos_info.php',
+				success: function(result) {
+					var vRes = result.split("html>")[3].split("¬");
+					var tRes = vRes.length;
+					var stat = vRes[tRes - 1];
+					var conteudo = "";
+					var tdNum = 0;
+
+					if (stat != "NOPS") {
+						for (var i = 1; i < vRes.length; i++) {
+							if (tdNum == 0)
+								conteudo += "<tr>";
+							
+							conteudo += "<td>" + vRes[i] + "</td>";
+							tdNum += 1;
+
+							if (tdNum == 9) {
+								conteudo += "</tr>";
+								tdNum = 0;
+							}
+						}
+						$('#corpoTabela').html(conteudo);
+					} else {
+						conteudo += "<tr><td>VAZIO</td><td>VAZIO</td><td>VAZIO</td><td>VAZIO</td><td>VAZIO</td><td>VAZIO</td><td>VAZIO</td><td>VAZIO</td><td>VAZIO</td></tr>"
+					}
+				}
+			});
+		}
+
+	</script>
+
+</body>
+</html>

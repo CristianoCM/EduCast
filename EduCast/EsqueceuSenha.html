@@ -63,7 +63,7 @@
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12">
-        	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" onclick="verificarEmail()">Enviar Dados</button>
+        	<button id="butDados" type="button" class="btn btn-info btn-lg" data-toggle="modal" onclick="verificarEmail()">Enviar Dados</button>
         	<!-- data-target="#modalEmail" -->
         </div>
 
@@ -113,6 +113,44 @@
 	  </div>
 	</div>
 
+	<div class="modal fade" id="modalEmailNoEducast" tabindex="-1" role="dialog" aria-labelledby="modalEmailNoEducastTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h4 class="modal-title" id="modalEmailNoEducastLongTitle">Aviso</h4>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <span style="color: #33cccc;">E-mail</span> informado não corresponde a nenhum cadastro do EduCast.
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade" id="modalEmailFailSend" tabindex="-1" role="dialog" aria-labelledby="modalEmailFailSendTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h4 class="modal-title" id="modalEmailFailSendLongTitle">Aviso</h4>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <span style="color: #33cccc;">E-mail</span> não pôde ser enviado. Erro inesperado.
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
     <script type="text/javascript">
       function redirecionar(pag) {
         if (pag.innerHTML == "Página Inicial") {
@@ -141,10 +179,44 @@
       function verificarEmail() {
       	var ema = $("#inputEmail").val();
       	var v = validateEmail(ema);
-        // Verificar no Banco de Dados se E-mail já foi utilizado
+
       	if (v) {
       		$("#inputEmail").css("border-color", "blue");
-      		$('#modalEmail').modal('show');
+      		// Verificar no Banco de Dados se E-mail já foi utilizado
+			$.ajax({
+				type: "POST",
+				url: 'Database/verificar_email.php',
+				data: {ema: ema},
+				success: function(result) {
+					var vRes = result.split(" ");
+					var tRes = vRes.length;
+					var stat = vRes[tRes - 1];
+
+					if (stat == "OK") {
+						$.ajax({
+							type: "POST",
+							url: 'Database/esqueceu_senha.php',
+							data: {ema: ema},
+							success: function(result2) {
+								var vRes2 = result2.split(" ");
+								var tRes2 = vRes2.length;
+								var stat2 = vRes2[tRes2 - 1];
+
+								if (stat2 == "OK") {										
+									$("#inputEmail").val("");
+									$('#modalEmail').modal('show');
+								} else {
+									$("#inputEmail").css("border-color", "orange");
+									$('#modalEmailFailSend').modal('show');
+								}
+							}
+						});
+					} else {
+						$("#inputEmail").css("border-color", "orange");
+						$('#modalEmailNoEducast').modal('show');
+					}
+				}
+			});
       	}
       	else {
       		$("#inputEmail").css("border-color", "red");      		
@@ -156,6 +228,15 @@
   	  	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   	  	return re.test(String(email).toLowerCase());
   	  }
+
+  	  var corpo = document.getElementsByTagName("body")[0];
+
+      corpo.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+          document.getElementById("butDados").click();
+        }
+      });
     </script>
 
 </body>

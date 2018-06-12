@@ -167,7 +167,7 @@ a > .fa:hover {
   color: #33cccc;
 }
 
-#modalEmailInvalidLongTitle, #modalMensagemVaziaLongTitle {
+#modalEmailInvalidLongTitle, #modalMensagemVaziaLongTitle, #modalEmailFailLongTitle {
   color: red;
 }
 

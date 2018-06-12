@@ -167,13 +167,16 @@ h0 {
 
   .space-between-footer {
     background-color: black;
-    margin-left: -5%;
-    margin-right: -5%;
-    border: 3px dashed white;
+    border: 1px solid white;
+    margin: 10px;
   }
 
   a:hover {
     color: white;
+  }
+
+  .linksUteis {
+
   }
 
 }

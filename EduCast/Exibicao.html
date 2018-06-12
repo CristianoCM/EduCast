@@ -37,14 +37,73 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 text-center">
 				<video autoplay controls id="videoPlaying">
-				  <source src="Videos/main-background.mp4" preload="auto" type="video/mp4">
-				  Seu navegador não suporta a tah vídeo do HTML5.
+				  <!--<source src="" preload="none" type="video/mp4">
+				  Seu navegador não suporta a tah vídeo do HTML5.-->
 				</video>
 			</div>
 		</div>		
 	</div>
 
 	<script type="text/javascript">
+		$(document).ready(function(e) {
+			verificarSessao();
+		});
+
+		function verificarSessao() {
+			$.ajax({
+				type: "POST",
+				url: 'Database/verificar_sessao.php',
+				success: function(result) {
+					if (result.length > 100)
+						window.location.replace('Login.html');
+				}
+			});
+		}
+
+		window.onload = function() {
+			vi = getURLParameter('v');
+			reproduzirVideo(vi);
+		  	adicionarVisualizacao(vi);
+		};
+
+		function reproduzirVideo(vi) {
+			$.ajax({
+				type: "POST",
+				url: 'Database/reproduzir_video.php',
+				data: {vi: vi},
+				success: function(result) {
+					var resp_vect = result.split("|");
+					var resp_path = resp_vect[resp_vect.length - 1];
+					
+					var video = document.getElementById('videoPlaying');
+					var source = document.createElement('source');
+
+					source.setAttribute('src', resp_path);
+
+					video.appendChild(source);
+					video.play();
+					//$('#videoPlaying source').attr('src', resp_path);
+					//$("#videoPlaying").load();
+					//$("#videoPlaying").play();
+				}
+			});
+		}
+
+		function adicionarVisualizacao(vi) {
+			$.ajax({
+				type: "POST",
+				url: 'Database/adicionar_visualizacao.php',
+				data: {vi: vi},
+				success: function(result) {
+					
+				}
+			});
+		}
+
+		function getURLParameter(name) {
+			return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+		}
+
 		$("#videoPlaying").click(function() {
 			if (this.paused)
         		this.play();

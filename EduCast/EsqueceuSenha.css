@@ -155,7 +155,7 @@ hr {
   color: #33cccc;
 }
 
-#modalEmailInvalidLongTitle {
+#modalEmailInvalidLongTitle, #modalEmailNoEducastLongTitle, #modalEmailFailSendLongTitle {
   color: red;
 }
 

@@ -84,8 +84,8 @@
 
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" onclick="verificarDados()">Cadastrar</button>
-        </div>        
+          <button id="butCadastro" type="button" class="btn btn-info btn-lg" data-toggle="modal" onclick="verificarDados()">Cadastrar</button>
+        </div>
       </div>
 
     	<div class="row">
@@ -109,25 +109,6 @@
         </div>
         <div class="modal-body">
           <span style="color: #33cccc;">E-mail</span> informado inválido ou inexistente.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="modalEmailRepeated" tabindex="-1" role="dialog" aria-labelledby="modalEmailRepeatedTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="modalEmailRepeatedLongTitle">Aviso</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <span style="color: #33cccc;">E-mail</span> informado já foi utilizado anteriormente para cadastro.
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
@@ -206,7 +187,8 @@
           <span style="color: #33cccc;">Conta</span> foi <strong>criada com sucesso!</strong>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="window.location.replace('Login.html');">OK</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+<!-- onclick="window.location.replace('Login.html');" -->
         </div>
       </div>
     </div>
@@ -270,13 +252,6 @@
           vGeral = false;
         }
 
-        var vEma2 = true; // Verificar se E-mail já foi utilizado no Banco de Dados
-        if (!vEma2 && vGeral) {
-          $("#inputEmail").css("border-color", "orange");
-          $('#modalEmailRepeated').modal('show');
-          vGeral = false;
-        }
-
         // Senhas escritas devem ser iguais
         if (sen != senNov && vGeral) {
           $("#inputSenha").css("border-color", "orange");
@@ -299,43 +274,43 @@
           vGeral = false;
         }
 		
-		// E-mail não pode ter sido utilizado para cadastro anteriormente
-        $.ajax({
-			type: "POST",
-			url: 'Database/´verificar_email.php',
-			data: {ema: ema},
-			success: function(result) {
-			  var vRes = result.split(" ");
-			  var tRes = vRes.length;
-			  var stat = vRes[tRes - 1];
-
-			  if (stat != "OK") {
-				vGeral = false;
-				$("#txtFalhaCadastro").html(vRes);
-				$('#modalCadastroFalha').modal('show');
-			  }
-			}
-		});
-
+        // E-mail não pode ter sido utilizado para cadastro anteriormente
         if (vGeral) {
-          $("#inputEmail").val("");
-          $("#inputSenha").val("");
-          $("#inputSenhaNov").val("");
-
           $.ajax({
             type: "POST",
-            url: 'Database/´cadastrar_usuario.php',
-            data: {ema: ema, sen: sen},
+            url: 'Database/verificar_email.php',
+            data: {ema: ema},
             success: function(result) {
               var vRes = result.split(" ");
               var tRes = vRes.length;
               var stat = vRes[tRes - 1];
 
+              $("#inputSenha").val("");
+              $("#inputSenhaNov").val("");
               if (stat == "OK") {
-                $('#modalCadastroSucesso').modal('show');
-              } else {
-                $("#txtFalhaCadastro").html(vRes);
+                $("#inputEmail").css("border-color", "orange");
+                $("#txtFalhaCadastro").html("E-mail já foi utilizado anteriormente.");
                 $('#modalCadastroFalha').modal('show');
+              } else {
+                $("#inputEmail").val("");
+
+                $.ajax({
+                  type: "POST",
+                  url: 'Database/cadastrar_usuario.php',
+                  data: {ema: ema, sen: sen},
+                  success: function(result) {
+                    var vRes = result.split(" ");
+                    var tRes = vRes.length;
+                    var stat = vRes[tRes - 1];
+
+                    if (stat == "OK") {
+                      $('#modalCadastroSucesso').modal('show');
+                    } else {
+                      $("#txtFalhaCadastro").html(vRes);
+                      $('#modalCadastroFalha').modal('show');
+                    }
+                  }
+                });
               }
             }
           });
@@ -355,6 +330,15 @@
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
       }
+
+      var corpo = document.getElementsByTagName("body")[0];
+
+      corpo.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+          document.getElementById("butCadastro").click();
+        }
+      });
     </script>
 
 </body>

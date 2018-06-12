@@ -1,10 +1,12 @@
 <?php 
+	include "iniciar_sessao.php";
 	include "connect.php";
 
-	$sql = "UPDATE Usuario SET nome = '" + $_REQUEST["nome"] + "' WHERE email = '" . $_SESSION["emailUsuario"] . "'";
+	$sql = "UPDATE Usuario SET nome = '" . $_REQUEST["nome"] . "' WHERE email = '" . $_SESSION["User"] . "'";
 
 	if ($conn->query($sql) === TRUE) {
-	    echo "|SHOW";
+		$_SESSION["Name"] = $_REQUEST["nome"];
+	    echo $_SESSION["User"] . "|SHOW";
 	} else {
 	    echo "|Error: " . $conn->error;
 	}

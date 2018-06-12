@@ -31,7 +31,7 @@
 	        <a class="nav-link" href="Perfil.html" title="Acessar perfil do usuário">Perfil</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="Login.html" title="Sair de sua conta">Sair</a>
+	        <a class="nav-link" href="Database/logout.php" title="Sair de sua conta">Sair</a>
 	      </li>
 	    </ul>
 	  </div>
@@ -111,6 +111,12 @@
 	            	<a class="btn btn-outline-secondary next seta-direita-pop" title="Itens Posteriores" id="popular_next">
 	            		<i class="fa fa-lg fa-chevron-right"></i>
 	            	</a>
+	            	<div id="txtPopularesLimiteLast" style="display: none;">
+	            		<span style="color: red;">Última página alcançada</span>
+	            	</div>
+	            	<div id="txtPopularesLimiteFirst" style="display: none;">
+	            		<span style="color: red;">Primeira página alcançada</span>
+	            	</div>
 	            </div>
 	            <div class="col-lg-5 col-md-4 col-sm-4"></div>
 	        </div>
@@ -123,145 +129,135 @@
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="popular_titulo1">Título</div>
+					  <div class="card-header" id="popular_titulo1"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoP1"></div>
 					  	<div class="video" id="popular_video1">
-					  		<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoP(this)" id="aVideoP1">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Seu navegador não suporta a tag de vídeo HTML5.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="popular_duracao1"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="popular_autor1"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="popular_duracao1"></span>
+							<span class="badge badge-pill badge-light" id="popular_autor1"></span>
 						</div>
 						<div id="popular_tags1">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+							
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="popular_descricao1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="popular_descricao1"></p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="popular_titulo2">Título</div>
+					  <div class="card-header" id="popular_titulo2"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoP2"></div>
 					  	<div class="video" id="popular_video2">
-						  	<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoP(this)" id="aVideoP2">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Seu navegador não suporta a tag de vídeo HTML5.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="popular_duracao2"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="popular_autor2"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="popular_duracao2"></span>
+							<span class="badge badge-pill badge-light" id="popular_autor2"></span>
 						</div>
 						<div id="popular_tags2">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="popular_descricao2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="popular_descricao2"></p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="popular_titulo3">Título</div>
+					  <div class="card-header" id="popular_titulo3"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoP3"></div>
 					  	<div class="video" id="popular_video3">
-						  	<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoP(this)" id="aVideoP3">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Seu navegador não suporta a tag de vídeo HTML5.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="popular_duracao3"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="popular_autor3"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="popular_duracao3"></span>
+							<span class="badge badge-pill badge-light" id="popular_autor3"></span>
 						</div>
 						<div id="popular_tags3">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="popular_descricao3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="popular_descricao3"></p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="popular_titulo4">Título</div>
+					  <div class="card-header" id="popular_titulo4"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoP4"></div>
 					  	<div class="video" id="popular_video4">
-						  	<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoP(this)" id="aVideoP4">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Seu navegador não suporta a tag de vídeo HTML5.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="popular_duracao4"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="popular_autor4"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="popular_duracao4"></span>
+							<span class="badge badge-pill badge-light" id="popular_autor4"></span>
 						</div>
 						<div id="popular_tags4">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="popular_descricao4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="popular_descricao4"></p>
 					  </div>
 					</div>
 				</div>
 
 				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="popular_titulo5">Título</div>
+					  <div class="card-header" id="popular_titulo5"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoP5"></div>
 					  	<div class="video" id="popular_video5">
-						  	<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoP(this)" id="aVideoP5">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Seu navegador não suporta a tag de vídeo HTML5.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="popular_duracao5"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="popular_autor5"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="popular_duracao5"></span>
+							<span class="badge badge-pill badge-light" id="popular_autor5"></span>
 						</div>
 						<div id="popular_tags5">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="popular_descricao5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="popular_descricao5"></p>
 					  </div>
 					</div>
 				</div>
@@ -283,16 +279,22 @@
 	            </div>
 	        </div>
 	        <div class="row">
-	        	<div class="col-lg-5 col-md-5 col-sm-5"></div>
-	            <div class="col-lg-2 col-md-2 col-sm-2 recentes-setas">
+	        	<div class="col-lg-5 col-md-4 col-sm-4"></div>
+	            <div class="col-lg-2 col-md-4 col-sm-4 recentes-setas">
 	            	<a class="btn btn-outline-secondary prev seta-esquerda-pop" title="Itens Anteriores" id="recentes_prev">
 	            		<i class="fa fa-lg fa-chevron-left"></i>
 	            	</a>
 	            	<a class="btn btn-outline-secondary next seta-direita-pop" title="Itens Posteriores" id="recentes_next">
 	            		<i class="fa fa-lg fa-chevron-right"></i>
 	            	</a>
+	            	<div id="txtRecentesLimiteLast" style="display: none;">
+	            		<span style="color: red;">Última página alcançada</span>
+	            	</div>
+	            	<div id="txtRecentesLimiteFirst" style="display: none;">
+	            		<span style="color: red;">Primeira página alcançada</span>
+	            	</div>
 	            </div>
-	            <div class="col-lg-5 col-md-5 col-sm-5"></div>
+	            <div class="col-lg-5 col-md-4 col-sm-4"></div>
 	        </div>
 	        <br>
 	    </div>
@@ -301,147 +303,137 @@
 			<div class="row">
 				<div class="col-lg-1 col-md-1 col-sm-1"></div>
 
-				<div class="col-lg-2 col-md-2 col-sm-2">
+				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="recentes_titulo1">Título</div>
+					  <div class="card-header" id="recentes_titulo1"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoR1"></div>
 					  	<div class="video" id="recentes_video1">
-						  	<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoR(this)" id="aVideoR1">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Seu navegador não suporta a tag de vídeo HTML5.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="recentes_duracao1"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="recentes_autor1"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="recentes_duracao1"></span>
+							<span class="badge badge-pill badge-light" id="recentes_autor1"></span>
 						</div>
 						<div id="recentes_tags1">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="recentes_descricao1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="recentes_descricao1"></p>
 					  </div>
 					</div>
 				</div>
 
-				<div class="col-lg-2 col-md-2 col-sm-2">
+				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="recentes_titulo2">Título</div>
+					  <div class="card-header" id="recentes_titulo2"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoR2"></div>
 					  	<div class="video" id="recentes_video2">
-						  	<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoR(this)" id="aVideoR2">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Seu navegador não suporta a tag de vídeo HTML5.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="recentes_duracao2"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="recentes_autor2"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="recentes_duracao2"></span>
+							<span class="badge badge-pill badge-light" id="recentes_autor2"></span>
 						</div>
 						<div id="recentes_tags2">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="recentes_descricao2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="recentes_descricao2"></p>
 					  </div>
 					</div>
 				</div>
 
-				<div class="col-lg-2 col-md-2 col-sm-2">
+				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="recentes_titulo3">Título</div>
+					  <div class="card-header" id="recentes_titulo3"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoR3"></div>
 					  	<div class="video" id="recentes_video3">
-						  	<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoR(this)" id="aVideoR3">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Seu navegador não suporta a tag de vídeo HTML5.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="recentes_duracao3"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="recentes_autor3"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="recentes_duracao3"></span>
+							<span class="badge badge-pill badge-light" id="recentes_autor3"></span>
 						</div>
 						<div id="recentes_tags3">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="recentes_descricao3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="recentes_descricao3"></p>
 					  </div>
 					</div>
 				</div>
 
-				<div class="col-lg-2 col-md-2 col-sm-2">
+				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="recentes_titulo4">Título</div>
+					  <div class="card-header" id="recentes_titulo4"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoR4"></div>
 					  	<div class="video" id="recentes_video4">
-						  	<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoR(this)" id="aVideoR4">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Seu navegador não suporta a tag de vídeo HTML5.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="recentes_duracao4"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="recentes_autor4"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="recentes_duracao4"></span>
+							<span class="badge badge-pill badge-light" id="recentes_autor4"></span>
 						</div>
 						<div id="recentes_tags4">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="recentes_descricao4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="recentes_descricao4"></p>
 					  </div>
 					</div>
 				</div>
 
-				<div class="col-lg-2 col-md-2 col-sm-2">
+				<div class="col-lg-2 col-md-4 col-sm-4">
 					<div class="card text-white mb-3" style="max-width: 18rem;">
-					  <div class="card-header" id="recentes_titulo5">Título</div>
+					  <div class="card-header" id="recentes_titulo5"></div>
 					  <div class="card-body">
+					  	<div style="display: none;" id="divVideoR5"></div>
 					  	<div class="video" id="recentes_video5">
-						  	<a href="Exibicao.html">
-							  	<video loop muted preload="none" poster="Imagens/EduCast Background.jpg">
-							      <source src="Videos/main-background.mp4" type="video/mp4">
+						  	<a onclick="exibirVideoR(this)" id="aVideoR5">
+							  	<video loop muted preload="none" poster="">
+							      <source src="" type="video/mp4">
 							      Seu navegador não suporta a tag de vídeo HTML5.
 							    </video>
 						    </a>
 						</div>
 						<div class="video-info">
-							<span class="badge badge-pill badge-light" id="recentes_duracao5"><span style="color: #3399ff;">Duração:</span> 3:12</span>
-							<span class="badge badge-pill badge-light" id="recentes_autor5"><span style="color: #3399ff;">Autor:</span> Carlos Roberto</span>
+							<span class="badge badge-pill badge-light" id="recentes_duracao5"></span>
+							<span class="badge badge-pill badge-light" id="recentes_autor5"></span>
 						</div>
 						<div id="recentes_tags5">
-							<span class="badge badge-pill badge-dark">C#</span>
-					    	<span class="badge badge-pill badge-dark">ASP.NET</span>
-					    	<span class="badge badge-pill badge-dark">MVC</span>
-					    	<span class="badge badge-pill badge-dark">Visual Studio</span>
+
 						</div>
 					  </div>
 					  <div class="card-footer">
-					    <p class="card-text" id="recentes_descricao5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text" id="recentes_descricao5"></p>
 					  </div>
 					</div>
 				</div>
@@ -472,6 +464,8 @@
 		}
 
 		$(document).ready(function(e) {
+			verificarSessao();
+
 		    $('.search-panel .dropdown-menu').find('a').click(function(e) {
 				e.preventDefault();
 				var param = $(this).attr("href").replace("#","");
@@ -481,8 +475,33 @@
 			});
 		});
 
+		function verificarSessao() {
+			$.ajax({
+				type: "POST",
+				url: 'Database/verificar_sessao.php',
+				success: function(result) {
+					if (result.length > 100)
+						window.location.replace('Login.html');
+				}
+			});
+		}
+
 		function buscar() {
 			window.location.replace('Busca.html?pesquisa=' + $('#txtPesquisa').val() + '&disciplina=' + $('.search-panel span#search_concept').text());
+			return false;
+		}
+
+		function exibirVideoR(e) {
+			var fE = e.id[e.id.length - 1];
+			var vId = $("#divVideoR" + fE).html();
+			window.location.replace('Exibicao.html?v=' + vId);
+			return false;
+		}
+
+		function exibirVideoP(e) {
+			var fE = e.id[e.id.length - 1];
+			var vId = $("#divVideoP" + fE).html();
+			window.location.replace('Exibicao.html?v=' + vId);
 			return false;
 		}
 
@@ -491,24 +510,42 @@
 
 		var popularNext = $('#popular_next').on('click', function() {
 			pag_popular += 1;
+			$('#txtPopularesLimiteFirst').hide();
 			rodarAjaxConsulta('consulta_popular.php', pag_popular);
 		});
 
 		var popularPrev = $('#popular_prev').on('click', function() {
-			if (pag_popular > 0)
+			$('#txtPopularesLimiteLast').hide();
+
+			if (pag_popular > 0) {
 				pag_popular -= 1;
+				$('#txtPopularesLimiteFirst').hide();
+			}
+			else {
+				$('#txtPopularesLimiteFirst').show();
+				return;
+			}
 
 			rodarAjaxConsulta('consulta_popular.php', pag_popular);
 		});
 
 		var recentesNext = $('#recentes_next').on('click', function() {
 			pag_recentes += 1;
+			$('#txtRecentesLimiteFirst').hide();
 			rodarAjaxConsulta('consulta_recente.php', pag_recentes);
 		});
 
 		var recentesPrev = $('#recentes_prev').on('click', function() {
-			if (pag_recentes > 0)
+			$('#txtRecentesLimiteLast').hide();
+
+			if (pag_recentes > 0) {
 				pag_recentes -= 1;
+				$('#txtRecentesLimiteFirst').hide();
+			}
+			else {
+				$('#txtRecentesLimiteFirst').show();
+				return;
+			}
 
 			rodarAjaxConsulta('consulta_recente.php', pag_recentes);
 		});
@@ -526,62 +563,90 @@
 				url: 'Database/' + arquivo_php,
 				data: {page: pag},
 				success: function(result) {
-					var vRes = result.split(" ");
-					var tVect = vRes.length;
-					var whatMatters = [];
+					var whatMatters = result.split("html>")[3].split("¬");
+					//var tVect = vRes.length;
 
-					for (var i = tVect - 1; i >= tVect - 40; i--) {
-						whatMatters.push(vRes[i]);
-					}
+					//for (var i = tVect - 1; i >= tVect - 39; i--) {
+					//	whatMatters.push(vRes[i]);
+					//}
 
 					var vez = 1;
 					var id = 0;
 
+					if (whatMatters.length == 1) {
+						if (arquivo_php == "consulta_popular.php") {
+							$('#txtPopularesLimiteLast').show();
+							pag_popular -= 1;
+						} else {
+							$('#txtRecentesLimiteLast').show();
+							pag_recentes -= 1;
+						}
+						return;
+					}
+
+					while (whatMatters.length < 41) {
+						whatMatters.push("");
+					}
+
 					if (arquivo_php == "consulta_popular.php") {
 						$("#populares").fadeOut(function() {
-							do {
-								$('#popular_titulo' + vez).html(whatMatters[id + 6]);
-								$("#popular_duracao" + vez).html("<span style='color: #3399ff;'>Duração:</span> " + whatMatters[id + 4]);
-							    $("#popular_video" + vez).html("<video loop muted preload='none' poster='" + whatMatters[id + 3] + "'><source src='" + whatMatters[id + 2] + "' type='video/mp4'>Seu navegador não suporta a tag de vídeo HTML5.</video>");
-							    $("#popular_descricao" + vez).html(whatMatters[id + 5]);
+							if (whatMatters[1] != "NOPS") {
+								$('#txtPopularesLimiteLast').hide();
+								do {
+									$("#divVideoP" + vez).html(whatMatters[id + 1]);
+									$('#popular_titulo' + vez).html(whatMatters[id + 2]);
+									$("#popular_duracao" + vez).html("<span style='color: #3399ff;'>Duração:</span> " + whatMatters[id + 4]);
+								    $("#popular_video" + vez).html("<a onclick='exibirVideoP(this)' id='aVideoP" + vez + "'><video loop muted preload='none' poster='" + whatMatters[id + 5] + "'><source src='" + whatMatters[id + 6] + "' type='video/mp4'>Seu navegador não suporta a tag de vídeo HTML5.</video></a>");
+								    $("#popular_descricao" + vez).html(whatMatters[id + 3]);
 
-							    $("#popular_autor" + vez).html("<span style='color: #3399ff;'>Autor:</span> " + whatMatters[id + 1]);
+								    $("#popular_autor" + vez).html("<span style='color: #3399ff;'>Autor:</span> " + whatMatters[id + 7]);
 
-							    var tag_vect = whatMatters[id].split(",");
-							    var tag_str = "";
-							    for (var i = 0; i < tag_vect.length; i++) {
-							    	tag_str += "<span class='badge badge-pill badge-dark'>" + tag_vect[i] + "</span>";
-							    }
+								    var tag_vect = whatMatters[id + 8].split("|");
+								    var tag_str = "";
 
-							    $("#popular_tags" + vez).html(tag_str);
+								    for (var i = 0; i < tag_vect.length; i++) {
+								    	tag_str += "<span class='badge badge-pill badge-dark'>" + tag_vect[i] + "</span>";
+								    }
 
-							    id += 8;
-							    vez += 1;
-							} while (vez < 6);
+								    $("#popular_tags" + vez).html(tag_str);
 
+								    id += 8;
+								    vez += 1;
+								} while (vez < 6);
+							} else {
+								$('#txtPopularesLimiteLast').show();
+								pag_popular -= 1;
+							}
 							fadeInElement($("#populares"));
 						});
 					} else {
 						$("#recentes").fadeOut(function() {
-							do {
-								$('#recentes_titulo' + vez).html(whatMatters[id + 6]);
-								$("#recentes_duracao" + vez).html("<span style='color: #3399ff;'>Duração:</span> " + whatMatters[id + 4]);
-							    $("#recentes_video" + vez).html("<video loop muted preload='none' poster='" + whatMatters[id + 3] + "'><source src='" + whatMatters[id + 2] + "' type='video/mp4'>Seu navegador não suporta a tag de vídeo HTML5.</video>");
-							    $("#recentes_descricao" + vez).html(whatMatters[id + 5]);
+							if (whatMatters[1] != "NOPS") {
+								$('#txtRecentesLimiteLast').hide();
+								do {
+									$("#divVideoR" + vez).html(whatMatters[id + 1]);
+									$('#recentes_titulo' + vez).html(whatMatters[id + 2]);
+									$("#recentes_duracao" + vez).html("<span style='color: #3399ff;'>Duração:</span> " + whatMatters[id + 4]);
+								    $("#recentes_video" + vez).html("<a onclick='exibirVideoR(this)' id='aVideoR" + vez + "'><video loop muted preload='none' poster='" + whatMatters[id + 5] + "'><source src='" + whatMatters[id + 6] + "' type='video/mp4'>Seu navegador não suporta a tag de vídeo HTML5.</video></a>");
+								    $("#recentes_descricao" + vez).html(whatMatters[id + 3]);
 
-							    $("#recentes_autor" + vez).html("<span style='color: #3399ff;'>Autor:</span> " + whatMatters[id + 1]);
+								    $("#recentes_autor" + vez).html("<span style='color: #3399ff;'>Autor:</span> " + whatMatters[id + 7]);
 
-							    var tag_vect = whatMatters[id].split(",");
-							    var tag_str = "";
-							    for (var i = 0; i < tag_vect.length; i++) {
-							    	tag_str += "<span class='badge badge-pill badge-dark'>" + tag_vect[i] + "</span>";
-							    }
+								    var tag_vect = whatMatters[id + 8].split("|");
+								    var tag_str = "";
+								    for (var i = 0; i < tag_vect.length; i++) {
+								    	tag_str += "<span class='badge badge-pill badge-dark'>" + tag_vect[i] + "</span>";
+								    }
 
-							    $("#recentes_tags" + vez).html(tag_str);
+								    $("#recentes_tags" + vez).html(tag_str);
 
-							    id += 8;
-							    vez += 1;
-							} while (vez < 6);
+								    id += 8;
+								    vez += 1;
+								} while (vez < 6);
+							} else {
+								$('#txtRecentesLimiteLast').show();
+								pag_recentes -= 1;
+							}
 
 							fadeInElement($("#recentes"));
 						});

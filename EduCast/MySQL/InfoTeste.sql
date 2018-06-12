@@ -13,6 +13,21 @@ VALUES("Titulo4", "Descricao4", "Caminho4", "mp4", "Tamanho4", "Duracao4", "Mini
 INSERT INTO Video(titulo, descricao, caminho, formato, tamanho, duracao, miniatura)
 VALUES("Titulo5", "Descricao5", "Caminho5", "mp5", "Tamanho5", "Duracao5", "Miniatura5");
 
+INSERT INTO Video(titulo, descricao, caminho, formato, tamanho, duracao, miniatura)
+VALUES("Titulo6", "Descricao6", "Caminho6", "mp6", "Tamanho6", "Duracao6", "Miniatura6");
+
+INSERT INTO Video(titulo, descricao, caminho, formato, tamanho, duracao, miniatura)
+VALUES("Titulo7", "Descricao7", "Caminho7", "mp7", "Tamanho7", "Duracao7", "Miniatura7");
+
+INSERT INTO Video(titulo, descricao, caminho, formato, tamanho, duracao, miniatura)
+VALUES("Titulo8", "Descricao8", "Caminho8", "mp8", "Tamanho8", "Duracao8", "Miniatura8");
+
+INSERT INTO Video(titulo, descricao, caminho, formato, tamanho, duracao, miniatura)
+VALUES("Titulo9", "Descricao9", "Caminho9", "mp9", "Tamanho9", "Duracao9", "Miniatura9");
+
+INSERT INTO Video(titulo, descricao, caminho, formato, tamanho, duracao, miniatura)
+VALUES("Titulo10", "Descricao10", "Caminho10", "mp10", "Tamanho10", "Duracao10", "Miniatura10");
+
 INSERT INTO Autor(nome, videoId)
 VALUES("Autor1", 1);
 
@@ -45,6 +60,3 @@ VALUES(2, "Android Studio", "AS");
 
 INSERT INTO Genero(videoId, nome, sigla)
 VALUES(3, "Redes", "Redes");
-
-INSERT INTO Usuario(nome, email, senha)
-VALUES("", "");

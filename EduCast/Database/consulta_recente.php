@@ -25,16 +25,17 @@
       $result_tags = $conn->query($sql_tags);
 
       $tags = "";
-      if ($sql_tags->num_rows > 0) {
+      if ($result_tags->num_rows > 0) {
         while($row_tags = $result_tags->fetch_assoc()) {
-          $tags .= $row_tags["nome"] . ",";
+          $tags .= $row_tags["nome"] . "|";
         }
+	      $tags[strlen($tags) - 1] = "";
       }
 
-      echo " " . $row["codigo"] . " " . $row["titulo"] . " " . $row["descricao"] . " " . $row["duracao"] . " " . $row["miniatura"] . " " . $row["caminho"] . " " . $autores . " " . $tags;
+      echo "¬" . $row["codigo"] . "¬" . $row["titulo"] . "¬" . $row["descricao"] . "¬" . $row["duracao"] . "¬" . $row["miniatura"] . "¬" . $row["caminho"] . "¬" . $autores . "¬" . $tags;
      }
   } else {
-     echo " NULL NULL NULL NULL NULL NULL NULL NULL ";
+     echo " NOPS ";
   }
   $conn->close();
 ?>

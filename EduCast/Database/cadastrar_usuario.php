@@ -4,7 +4,7 @@
 	$u = $_REQUEST["ema"];
 	$s = $_REQUEST["sen"];
 
-	$sql = "INSERT INTO Usuario (email, senha) VALUES ('" . $u . "', '" . $s . "')";
+	$sql = "INSERT INTO Usuario (email, senha) VALUES ('" . $u . "', '" . md5($s) . "')";
 
 	if ($conn->query($sql) === TRUE) {
 	    echo " OK";

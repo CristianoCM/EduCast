@@ -137,6 +137,25 @@
     </div>
   </div>
 
+  <div class="modal fade" id="modalEmailFail" tabindex="-1" role="dialog" aria-labelledby="modalEmailFailTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modalEmailFailLongTitle">Aviso</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <span style="color: #33cccc;">E-mail</span> não pôde ser enviado. Erro inesperado.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <div class="modal fade" id="modalEmailInvalid" tabindex="-1" role="dialog" aria-labelledby="modalEmailInvalidTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -207,11 +226,28 @@
         if (v) {
           var mens = $("#inputMensagem").val();
           if (mens.length != 0) {
-            $("#inputEmail").val("");
-            $("#inputMensagem").val("");
-            $('#modalEmail').modal('show');
-            $("#inputEmail").css("border-color", "transparent");
-            $("#inputMensagem").css("border-color", "transparent");
+            $.ajax({
+                type: "POST",
+                url: 'Database/email_contato.php',
+                data: {ema: ema},
+                success: function(result) {
+                  var vRes = result.split("|");
+                  var tRes = vRes.length;
+                  var stat = vRes[tRes - 1];
+
+                  if (stat == "OK") {
+                    $("#inputEmail").val("");
+                    $("#inputMensagem").val("");
+                    $('#modalEmail').modal('show');
+                    $("#inputEmail").css("border-color", "transparent");
+                    $("#inputMensagem").css("border-color", "transparent");
+                  } else {
+                    $("#inputEmail").css("border-color", "orange"); 
+                    $("#inputMensagem").css("border-color", "orange");          
+                    $('#modalEmailFail').modal('show');
+                  }
+                }
+              });            
           } else {
             $("#inputMensagem").css("border-color", "red");          
             $('#modalMensagemVazia').modal('show');

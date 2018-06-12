@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="CadastroVideos.css">
+
+	<meta charset="utf-8">
+	<title>Exclusão de Vídeos - Interno</title>
+</head>
+<body>
+
+	<div class="container">
+		<br>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<h1>- Exclusão de Vídeos</h1>
+				<hr>
+				(!) Informe pelo menos um dos dois itens abaixo para deletar
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-lg-9 col-md-9 col-sm-9">
+				<div class="form-group">
+	              <label for="inputCodigo"><span style="font-size: 24px; font-weight: bold;">Código:</span></label>
+	              <input class="form-control input-sm" id="inputCodigo" type="text" placeholder="Código" maxlength="80">
+	            </div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-9 col-md-9 col-sm-9">
+				<div class="form-group">
+	              <label for="inputCaminhoV"><span style="font-size: 24px; font-weight: bold;">Caminho do Vídeo no Servidor:</span></label>
+	              <input class="form-control input-sm" id="inputCaminhoV" type="text" placeholder="Caminho do Vídeo" maxlength="120" value="Videos/">
+	            </div>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-danger btn-lg" data-toggle="modal" onclick="verificarDados()">Excluir Vídeo</button>
+				<button type="button" class="btn btn-warning btn-lg" data-toggle="modal" onclick="limparDados()">Limpar Formulário</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- MODALS -->
+	<div class="modal fade" id="modalVazio" tabindex="-1" role="dialog" aria-labelledby="modalVazioTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modalVazioLongTitle">Aviso</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Deve-se preencher <strong>pelo menos 1</strong> item acima (ou código ou caminho) para excluir o vídeo.
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalExclusaoSucesso" tabindex="-1" role="dialog" aria-labelledby="modalExclusaoSucessoTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modalExclusaoSucessoLongTitle">Sucesso</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<span style="color: #33cccc;">Vídeo</span> foi <strong>deletado com sucesso!</strong>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalExclusaoFalha" tabindex="-1" role="dialog" aria-labelledby="modalExclusaoFalhaTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modalExclusaoFalhaLongTitle">Erro</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Ocorreu uma <strong>falha</strong> durante a deleção do vídeo.
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		
+		function verificarDados() {
+			var codigo = $("#inputCodigo").val();
+			var caminhoVideo = $("#inputCaminhoV").val();
+
+			if (codigo.length == 0 && caminhoVideo.length == 0) {
+				$("#inputCodigo").css("border-color", "orange");
+				$("#inputCaminhoV").css("border-color", "orange");
+				$('#modalVazio').modal('show');
+				return;
+	        }
+
+	        $.ajax({
+				type: "POST",
+				url: 'Database/deletar_video.php',
+				data: {codigo: codigo, caminhoVideo: caminhoVideo},
+				success: function(result) {
+					var vRes = result.split(" ");
+					var tRes = vRes.length;
+					var stat = vRes[tRes - 1];
+
+					if (stat == "OK") {
+						$('#modalExclusaoSucesso').modal('show');
+						limparDados();
+					} else {
+						$('#modalExclusaoFalha').modal('show');
+					}
+				}
+			});
+		}
+
+		function limparDados() {
+			$("#inputCodigo").val("");
+			$("#inputCaminhoV").val("");
+		}
+
+	</script>
+
+</body>
+</html>

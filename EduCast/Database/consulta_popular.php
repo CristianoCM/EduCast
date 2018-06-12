@@ -4,7 +4,7 @@
   $page = $_REQUEST["page"];
   $partir = $page * 5;
 
-  $sql = "SELECT codigo, titulo, descricao, caminho, formato, tamanho, duracao, miniatura FROM Video WHERE codigo IN (SELECT videoId FROM Visualizados GROUP BY videoId ORDER BY COUNT(*) DESC LIMIT 5 OFFSET " . $partir);
+  $sql = "SELECT codigo, titulo, descricao, caminho, formato, tamanho, duracao, miniatura FROM Video WHERE codigo IN (SELECT videoId FROM Visualizados GROUP BY videoId ORDER BY COUNT(*) DESC) LIMIT 5 OFFSET " . $partir;
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -25,16 +25,17 @@
       $result_tags = $conn->query($sql_tags);
 
       $tags = "";
-      if ($sql_tags->num_rows > 0) {
+      if ($result_tags->num_rows > 0) {
         while($row_tags = $result_tags->fetch_assoc()) {
-          $tags .= $row_tags["nome"] . ",";
+          $tags .= $row_tags["nome"] . "|";
         }
+        $tags[strlen($tags) - 1] = "";
       }
 
-      echo " " . $row["codigo"] . " " . $row["titulo"] . " " . $row["descricao"] . " " . $row["duracao"] . " " . $row["miniatura"] . " " . $row["caminho"] . " " . $autores . " " . $tags;
+      echo "¬" . $row["codigo"] . "¬" . $row["titulo"] . "¬" . $row["descricao"] . "¬" . $row["duracao"] . "¬" . $row["miniatura"] . "¬" . $row["caminho"] . "¬" . $autores . "¬" . $tags;
      }
   } else {
-     echo " NULL NULL NULL NULL NULL NULL NULL NULL ";
+     echo " NOPS ";
   }
   $conn->close();
 ?>

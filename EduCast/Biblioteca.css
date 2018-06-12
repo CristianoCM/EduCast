@@ -113,6 +113,10 @@ video {
 	height: 100%;
 }
 
+video:hover {
+	cursor: pointer;
+}
+
 @media only screen and (max-width: 975px) {
 	.form-inline {
 		width: 70%;
@@ -124,4 +128,3 @@ video {
 		width: 100%;
 	}
 }
-

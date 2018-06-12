@@ -8,7 +8,7 @@
     <?php
       $servername = "localhost:3306";
       $username = "root";
-      $password = "ricas251";
+      $password = "ifes.cachoeiro";
       $dbname = "eduCast";
 
       // Create connection

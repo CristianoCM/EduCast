@@ -1,0 +1,22 @@
+* {
+	color: black;
+}
+
+body {
+	background-color: black;
+}
+
+hr {
+	background-color: white;
+	height: 3px;
+}
+
+h1 {
+	font-family: Georgia;
+	font-weight: bold;
+	color: white;
+}
+
+button {
+	margin-right: 15px;
+}

@@ -6,17 +6,18 @@
   $whe2 = $_REQUEST["whe2"];
   $partir = $page * 5;
 
-  $sql = "SELECT codigo, titulo, descricao, caminho, formato, tamanho, duracao, miniatura FROM Video ";
-  if ($whe != "") {
-    $sql .= " WHERE titulo LIKE '%" . $whe . "%' ";
-    if ($whe2 != "" && $whe2 != "Todas") {
-      $sql .= " AND codigo IN (SELECT videoId FROM Genero WHERE nome = '" . $whe2 . "') "
-    }
-    $sql .= "ORDER BY dataCadastro DESC LIMIT 5 OFFSET " . $partir;
-  } else {
-    $sql .= "LIMIT 5 OFFSET " . $partir;
-  }
+  $sql = "SELECT codigo, titulo, descricao, caminho, formato, tamanho, duracao, miniatura FROM Video WHERE 1 = 1 ";
   
+  if ($whe != "*") {
+    $sql .= "AND titulo LIKE '%" . $whe . "%' ";
+  }
+
+  if ($whe2 != "*") {
+    $sql .= "AND codigo IN (SELECT videoId FROM Genero WHERE nome = '" . $whe2 . "') ";
+  }
+
+  $sql .= "ORDER BY dataCadastro DESC LIMIT 5 OFFSET " . $partir;
+
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -35,18 +36,19 @@
 
       $sql_tags = "SELECT codigo, nome FROM Genero WHERE videoId = " . $row["codigo"];
       $result_tags = $conn->query($sql_tags);
-
+      
       $tags = "";
-      if ($sql_tags->num_rows > 0) {
+      if ($result_tags->num_rows > 0) {
         while($row_tags = $result_tags->fetch_assoc()) {
-          $tags .= $row_tags["nome"] . ",";
+          $tags .= $row_tags["nome"] . "|";
         }
+        $tags[strlen($tags) - 1] = "";
       }
 
-      echo " " . $row["codigo"] . " " . $row["titulo"] . " " . $row["descricao"] . " " . $row["duracao"] . " " . $row["miniatura"] . " " . $row["caminho"] . " " . $autores . " " . $tags;
+      echo "¬" . $row["codigo"] . "¬" . $row["titulo"] . "¬" . $row["descricao"] . "¬" . $row["duracao"] . "¬" . $row["miniatura"] . "¬" . $row["caminho"] . "¬" . $autores . "¬" . $tags;
      }
   } else {
-     echo " NULL NULL NULL NULL NULL NULL NULL NULL ";
+     echo " NOPS ";
   }
   $conn->close();
 ?>
